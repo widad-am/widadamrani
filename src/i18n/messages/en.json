@@ -1,0 +1,11 @@
+{
+  "hero": {
+    "title": "Full Stack Developer"
+  },
+  "nav": {
+    "projects": "Projects"
+  },
+  "footer": {
+    "cta": "Contact me"
+  }
+} 
