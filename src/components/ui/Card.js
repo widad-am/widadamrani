@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { forwardRef } from 'react';
+import Image from 'next/image';
 
 const Card = forwardRef(({
   children,
@@ -70,44 +71,58 @@ const Card = forwardRef(({
 Card.displayName = 'Card';
 
 // Card sub-components for better organization
-Card.Header = ({ children, className = '', ...props }) => (
-  <div className={`mb-4 ${className}`} {...props}>
-    {children}
-  </div>
-);
+Card.Header = function CardHeader({ children, className = '', ...props }) {
+  return (
+    <div className={`mb-4 ${className}`} {...props}>
+      {children}
+    </div>
+  );
+};
 
-Card.Title = ({ children, className = '', ...props }) => (
-  <h3 className={`text-xl font-semibold mb-2 ${className}`} {...props}>
-    {children}
-  </h3>
-);
+Card.Title = function CardTitle({ children, className = '', ...props }) {
+  return (
+    <h3 className={`text-xl font-semibold mb-2 ${className}`} {...props}>
+      {children}
+    </h3>
+  );
+};
 
-Card.Subtitle = ({ children, className = '', ...props }) => (
-  <p className={`text-gray-600 text-sm ${className}`} {...props}>
-    {children}
-  </p>
-);
+Card.Subtitle = function CardSubtitle({ children, className = '', ...props }) {
+  return (
+    <p className={`text-gray-600 text-sm ${className}`} {...props}>
+      {children}
+    </p>
+  );
+};
 
-Card.Content = ({ children, className = '', ...props }) => (
-  <div className={className} {...props}>
-    {children}
-  </div>
-);
+Card.Content = function CardContent({ children, className = '', ...props }) {
+  return (
+    <div className={className} {...props}>
+      {children}
+    </div>
+  );
+};
 
-Card.Footer = ({ children, className = '', ...props }) => (
-  <div className={`mt-6 pt-4 border-t border-gray-200 ${className}`} {...props}>
-    {children}
-  </div>
-);
+Card.Footer = function CardFooter({ children, className = '', ...props }) {
+  return (
+    <div className={`mt-6 pt-4 border-t border-gray-200 ${className}`} {...props}>
+      {children}
+    </div>
+  );
+};
 
-Card.Image = ({ src, alt, className = '', ...props }) => (
-  <div className={`mb-4 overflow-hidden rounded-lg ${className}`} {...props}>
-    <img 
-      src={src} 
-      alt={alt} 
-      className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-    />
-  </div>
-);
+Card.Image = function CardImage({ src, alt, className = '', width = 400, height = 300, ...props }) {
+  return (
+    <div className={`mb-4 overflow-hidden rounded-lg ${className}`} {...props}>
+      <Image 
+        src={src} 
+        alt={alt} 
+        width={width}
+        height={height}
+        className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
+      />
+    </div>
+  );
+};
 
 export default Card; 

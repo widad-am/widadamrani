@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: "JumiDeal: Smart Vendor Management App",
-    description: "A powerful mobile application for Jumia vendors that streamlines product listing, price calculation, and business management. With JumiDeal, vendors can list products in under a minute, instantly calculate exact costs and profits (including Jumia's fees), and use simulation tools to preview earnings. The app features a role-based dashboard for both regular users and admins, and offers a quoting system for premium access—empowering vendors to save time, maximize profits, and efficiently manage their business on the go",
+    description: "A powerful mobile application for Jumia vendors that streamlines product listing, price calculation, and business management. With JumiDeal, vendors can list products in under a minute, instantly calculate exact costs and profits (including Jumia&apos;s fees), and use simulation tools to preview earnings. The app features a role-based dashboard for both regular users and admins, and offers a quoting system for premium access—empowering vendors to save time, maximize profits, and efficiently manage their business on the go",
     technologies: ["React Native","Expo","TypeScript","Supabase","Expo Image Picker", "React Navigation"],
     gradient: "from-green-500 to-emerald-500",
     icon: "📱"
@@ -147,7 +147,7 @@ export default function Projects() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Let's Work Together
+            Let&apos;s Work Together
             <FiArrowRight className="ml-2" />
           </motion.a>
         </motion.div>

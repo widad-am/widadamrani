@@ -14,8 +14,8 @@ const navLinks = [
 
 const LANGUAGES = [
   { code: 'en', label: 'EN', flag: '🇬🇧' },
-  { code: 'fr', label: 'FR', flag: '🇫🇷' },
-  { code: 'de', label: 'DE', flag: '🇩🇪' },
+  // { code: 'fr', label: 'FR', flag: '🇫🇷' },
+  // { code: 'de', label: 'DE', flag: '🇩🇪' },
 ];
 
 export default function Header() {

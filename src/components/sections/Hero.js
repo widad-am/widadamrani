@@ -61,7 +61,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              👋 Hello, I'm Widad Amrani
+              👋 Hello, I&apos;m Widad Amrani
             </motion.p>
             
             <motion.h1
@@ -97,7 +97,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Let's Connect
+                {"Let&apos;s Connect"}
               </motion.a>
               <motion.a
                 href="#projects"

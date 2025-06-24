@@ -51,7 +51,7 @@ export default function Experience() {
             <span className="gradient-text">Professional Experience</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            My journey in software development and the impact I've made
+            My journey in software development and the impact I&apos;ve made
           </p>
         </motion.div>
 
@@ -167,7 +167,7 @@ export default function Experience() {
               Ready to work together?
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-              I'm always excited to take on new challenges and create amazing digital experiences. Let's discuss your next project!
+              I&apos;m always excited to take on new challenges and create amazing digital experiences. Let&apos;s discuss your next project!
             </p>
             <motion.a
               href="#contact"
@@ -175,7 +175,7 @@ export default function Experience() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Let's Connect
+              {"Let&apos;s Connect"}
             </motion.a>
           </div>
         </motion.div>

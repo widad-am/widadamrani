@@ -80,7 +80,7 @@ export default function Contact() {
             <span className="gradient-text">Get in Touch</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team.
+            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. I am driven by the challenge of solving complex problems and delivering high-quality, user-centric products that exceed expectations.
           </p>
         </motion.div>
 
@@ -92,7 +92,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8">Let's Connect</h3>
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8">Let&apos;s Connect</h3>
             
             {/* Contact methods */}
             <div className="space-y-6 mb-8">
@@ -190,7 +190,7 @@ export default function Contact() {
                     id="subject"
                     name="subject"
                     className="w-full px-4 py-3 border border-gray-200 dark:border-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100"
-                    placeholder="What's this about?"
+                    placeholder="What&apos;s this about?"
                   />
                 </div>
                 

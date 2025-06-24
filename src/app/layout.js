@@ -1,9 +1,7 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { cookies, headers } from 'next/headers';
-import clsx from 'clsx';
-import ThemeProvider from '@/components/theme-provider'; // "use client"
-import LangEffect from "@/components/ui/LangEffect";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import Header from "@/components/ui/Header";
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -16,39 +14,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const cookieTheme = cookies().get('theme')?.value;     // "dark" | "light" | undefined
-  const headerTheme = headers().get('sec-ch-prefers-color-scheme'); // "dark" | "light" | null
-  const initialTheme =
-    cookieTheme ?? (headerTheme === 'dark' ? 'dark' : 'light');
-
   return (
-    <html
-      lang="en"
-      className={clsx('!scroll-smooth', initialTheme === 'dark' && 'dark')}
-      suppressHydrationWarning
-    >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme') || 'light';
-                  if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body className={poppins.className}>
-        <LangEffect />
-        <ThemeProvider defaultTheme={initialTheme} attribute="class">
-          {children}
+    <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
+      <body className={`${poppins.className} bg-gray-50 text-gray-800`}>
+        <ThemeProvider>
+          <Header />
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>
