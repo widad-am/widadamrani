@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail, FiArrowUp } from 'react-icons/fi';
 
 const contactDetails = {
-  linkedin: "https://linkedin.com/in/your-profile", // Placeholder
-  github: "https://github.com/your-profile", // Placeholder
+  linkedin: "https://www.linkedin.com/in/widad-amrani-23266022b/", // Placeholder
+  github: "https://github.com/widad-am", // Placeholder
   email: "Widad.amraniacs@gmail.com"
 };
 

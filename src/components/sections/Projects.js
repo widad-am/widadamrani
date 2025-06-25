@@ -8,28 +8,36 @@ const projects = [
     description: "A comprehensive back-office system for service management, featuring an admin dashboard, analytics, automated workflows, and role-based access control.",
     technologies: ["Next.js", "Supabase", "Tailwind CSS", "Chart.js", "FullCalendar", "Node-cron"],
     gradient: "from-purple-500 to-pink-500",
-    icon: "🏢"
+    icon: "🏢",
+    liveDemo: "https://admin.prestafreedom.com/dashboard"
+    // sourceCode: "#"
   },
   {
     title: "PrestaFreedom Client App",
     description: "The main client-facing web application for the PrestaFreedom service. It includes features like real-time tracking, a quoting system, and secure payment processing with PayXpert.",
     technologies: ["Next.js", "Supabase", "Jotai", "PayXpert", "Resend API", "Google Maps API"],
     gradient: "from-blue-500 to-cyan-500",
-    icon: "💼"
+    icon: "💼",
+    liveDemo: "https://www.prestafreedom.com/"
+    // sourceCode: "#"
   },
   {
     title: "JumiDeal: Smart Vendor Management App",
-    description: "A powerful mobile application for Jumia vendors that streamlines product listing, price calculation, and business management. With JumiDeal, vendors can list products in under a minute, instantly calculate exact costs and profits (including Jumia&apos;s fees), and use simulation tools to preview earnings. The app features a role-based dashboard for both regular users and admins, and offers a quoting system for premium access—empowering vendors to save time, maximize profits, and efficiently manage their business on the go",
+    description: "A powerful mobile application for Jumia vendors that streamlines product listing, price calculation, and business management. With JumiDeal, vendors can list products in under a minute, instantly calculate exact costs and profits (including Jumia's fees), and use simulation tools to preview earnings. The app features a role-based dashboard for both regular users and admins, and offers a quoting system for premium access—empowering vendors to save time, maximize profits, and efficiently manage their business on the go",
     technologies: ["React Native","Expo","TypeScript","Supabase","Expo Image Picker", "React Navigation"],
     gradient: "from-green-500 to-emerald-500",
-    icon: "📱"
+    icon: "📱",
+    // liveDemo: "https://admin.prestafreedom.com/dashboard"
+    // sourceCode: "#"
   },
   {
     title: "PrestaFreedom Mobile App",
     description: "A feature-rich mobile app for PrestaFreedom clients, built with Expo Router. It includes calendar views, date pickers, and other interactive elements. (PFMassirati)",
     technologies: ["React Native", "Expo Router", "Supabase", "RNEUI", "React Native Calendars"],
     gradient: "from-orange-500 to-red-500",
-    icon: "📅"
+    icon: "📅",
+    // liveDemo: "#"
+    // sourceCode: "#"
   }
 ];
 
@@ -98,32 +106,38 @@ export default function Projects() {
                   </div>
                   
                   {/* Action buttons */}
-                  <div className="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-gray-800">
-                    <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-4">
+                    {project.liveDemo && (
                       <motion.a 
-                        href="#" 
+                        href={project.liveDemo} 
                         className="flex items-center text-sm text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 group/link"
                         whileHover={{ x: 5 }}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <FiExternalLink className="mr-2 group-hover/link:scale-110 transition-transform duration-300" />
                         Live Demo
                       </motion.a>
-                      <motion.a 
-                        href="#" 
-                        className="flex items-center text-sm text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 group/link"
-                        whileHover={{ x: 5 }}
-                      >
-                        <FiGithub className="mr-2 group-hover/link:scale-110 transition-transform duration-300" />
-                        Source Code
-                      </motion.a>
-                    </div>
-                    <motion.div
-                      className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      whileHover={{ scale: 1.1 }}
+                    )}
+                    {/*
+                    <motion.a 
+                      href={project.sourceCode || "#"} 
+                      className="flex items-center text-sm text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 group/link"
+                      whileHover={{ x: 5 }}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <FiArrowRight className="text-sm" />
-                    </motion.div>
+                      <FiGithub className="mr-2 group-hover/link:scale-110 transition-transform duration-300" />
+                      Source Code
+                    </motion.a>
+                    */}
                   </div>
+                  <motion.div
+                    className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <FiArrowRight className="text-sm" />
+                  </motion.div>
                 </div>
                 
                 {/* Gradient overlay on hover */}
