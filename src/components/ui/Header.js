@@ -62,18 +62,14 @@ export default function Header() {
   }, [showLangDropdown]);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled 
-        ? 'glass shadow-glow' 
-        : 'bg-transparent'
-    }`}>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass shadow-glow">
       <nav className="container mx-auto px-6 flex justify-between items-center py-4">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <a href="#" className="text-2xl font-bold gradient-text">
+          <a href="#" className="text-2xl font-bold text-gray-900 dark:text-white">
             Widad Amrani
           </a>
         </motion.div>
@@ -90,7 +86,7 @@ export default function Header() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#86198f] transition-all duration-300 group-hover:w-full"></span>
             </motion.a>
           ))}
           
@@ -110,7 +106,7 @@ export default function Header() {
                 {LANGUAGES.map((lang) => (
                   <button
                     key={lang.code}
-                    className={`w-full flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${language === lang.code ? 'font-bold text-purple-600 dark:text-pink-400' : 'text-gray-700 dark:text-gray-200'}`}
+                    className={`w-full flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${language === lang.code ? 'font-bold text-[#86198f]' : 'text-gray-700 dark:text-gray-200'}`}
                     onClick={() => { setLanguage(lang.code); setShowLangDropdown(false); }}
                   >
                     <span className="mr-2">{lang.flag}</span> {lang.label}
@@ -131,7 +127,7 @@ export default function Header() {
           <motion.a
             href="/assets/widadamrani.pdf"
             download
-            className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="px-6 py-2 bg-[#86198f] text-white rounded-full font-medium hover:bg-[#701a7a] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -182,7 +178,7 @@ export default function Header() {
             <motion.a
               href="/assets/widadamrani.pdf"
               download
-              className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
+              className="w-full mt-4 px-6 py-3 bg-[#86198f] text-white rounded-lg font-medium hover:bg-[#701a7a] transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.5 }}

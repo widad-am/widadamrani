@@ -12,19 +12,15 @@ export default function Hero() {
   ];
 
   return (
-    <section id="hero" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden gradient-bg dark:gradient-bg-dark">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-purple-300 dark:bg-purple-600/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute top-40 right-20 w-72 h-72 bg-pink-300 dark:bg-pink-600/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-blue-300 dark:bg-blue-600/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-      </div>
+    <section id="hero" className="relative w-full min-h-screen flex items-center justify-center overflow-visible bg-gray-50 dark:bg-gray-950 pb-0">
+      {/* Smooth transition to next section - very extended */}
+      <div className="absolute bottom-0 left-0 right-0 h-80 md:h-96 bg-gradient-to-b from-transparent via-transparent via-gray-50/10 via-gray-50/40 via-gray-50/70 to-gray-50 dark:via-gray-950/10 dark:via-gray-950/40 dark:via-gray-950/70 dark:to-gray-950 pointer-events-none"></div>
 
       {/* Floating icons */}
       {floatingIcons.map((item, index) => (
         <motion.div
           key={index}
-          className="absolute text-purple-400/30 dark:text-purple-300/50"
+          className="absolute text-[#86198f]/20 dark:text-[#86198f]/10"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: item.delay }}
@@ -50,13 +46,13 @@ export default function Hero() {
         <div className="flex flex-col lg:flex-row items-center justify-center gap-16">
           {/* Text Content */}
           <motion.div
-            className="text-center lg:text-left max-w-2xl"
+            className="text-center lg:text-left max-w-2xl pt-20 lg:pt-0"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.p
-              className="text-lg font-medium text-purple-600 dark:text-purple-400 mb-4"
+              className="text-lg font-medium text-[#86198f] mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -93,15 +89,15 @@ export default function Hero() {
             >
               <motion.a
                 href="#contact"
-                className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="px-8 py-4 bg-[#86198f] text-white font-semibold rounded-full hover:bg-[#701a7a] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {"Let&apos;s Connect"}
+                Let&apos;s Work Together
               </motion.a>
               <motion.a
                 href="#projects"
-                className="px-8 py-4 border-2 border-purple-600 dark:border-purple-400 text-purple-600 dark:text-purple-400 font-semibold rounded-full hover:bg-purple-600 hover:text-white dark:hover:bg-purple-400 dark:hover:text-gray-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="px-8 py-4 border-2 border-[#86198f] text-[#86198f] font-semibold rounded-full hover:bg-[#86198f] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -120,10 +116,10 @@ export default function Hero() {
             <div className="relative">
               {/* Main profile card */}
               <div className="w-80 h-80 rounded-3xl glass dark:glass-dark shadow-glow overflow-hidden relative flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 via-pink-400/20 to-blue-400/20 dark:from-purple-600/20 dark:via-pink-600/20 dark:to-blue-600/20"></div>
+                <div className="absolute inset-0 bg-[#86198f]/10"></div>
                 <div className="relative h-full flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
+                    <div className="w-32 h-32 rounded-full bg-[#86198f]/20 mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
                       <Image
                         src="/images/WhatsApp Image 2024-07-26 at 17.18.31.jpg"
                         alt="Widad Amrani Profile Photo"

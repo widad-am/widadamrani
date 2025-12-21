@@ -5,6 +5,21 @@ import { FiBriefcase, FiCalendar, FiMapPin, FiAward } from 'react-icons/fi';
 const experience = [
   {
     role: "Full Stack Developer",
+    company: "M&N IT",
+    period: "09/2025 - Present",
+    location: "Remote",
+    description: "Working as a Full Stack Developer at M&N IT, developing modern web applications using cutting-edge technologies. Focused on building scalable solutions with React, Next.js, MongoDB, and integrating AI capabilities through OpenAI SDK.",
+    achievements: [
+      "Developing full-stack web applications using React and Next.js.",
+      "Implementing database solutions with MongoDB for efficient data management.",
+      "Integrating OpenAI SDK to add AI-powered features to applications.",
+      "Building responsive and performant user interfaces."
+    ],
+    technologies: ["React", "Next.js", "MongoDB", "OpenAI SDK"],
+    gradient: "from-indigo-500 to-blue-500"
+  },
+  {
+    role: "Full Stack Developer",
     company: "PrestaFreedom",
     period: "2022 - Present",
     location: "Remote",
@@ -23,12 +38,8 @@ const experience = [
 export default function Experience() {
   return (
     <section id="experience" className="py-20 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-pink-50 to-purple-50 dark:from-gray-900 dark:via-pink-950 dark:to-purple-950"></div>
-      
-      {/* Floating elements */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-pink-200 dark:bg-pink-900 rounded-full opacity-20 animate-blob"></div>
-      <div className="absolute bottom-20 right-20 w-24 h-24 bg-purple-200 dark:bg-purple-900 rounded-full opacity-20 animate-blob animation-delay-2000"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-gray-50 dark:bg-gray-950"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -39,7 +50,7 @@ export default function Experience() {
           className="text-center mb-16"
         >
           <motion.div
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-6"
+            className="inline-flex items-center justify-center w-16 h-16 bg-[#86198f] rounded-full mb-6"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -66,7 +77,7 @@ export default function Experience() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
               {/* Timeline line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-400 to-pink-400 dark:from-purple-900 dark:to-pink-900"></div>
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[#86198f]/30 dark:bg-[#86198f]/20"></div>
               
               {/* Main experience card */}
               <div className="relative ml-16">
@@ -94,12 +105,14 @@ export default function Experience() {
                         </div>
                       </div>
                     </div>
-                    <div className="mt-4 lg:mt-0">
-                      <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 text-purple-700 dark:text-purple-200 rounded-full text-sm font-medium">
-                        <FiAward className="mr-2" />
-                        Current Position
-                      </span>
-                    </div>
+                    {index === 0 && (
+                      <div className="mt-4 lg:mt-0">
+                        <span className="inline-flex items-center px-4 py-2 bg-[#86198f]/10 dark:bg-[#86198f]/20 text-[#86198f] dark:text-[#86198f] rounded-full text-sm font-medium">
+                          <FiAward className="mr-2" />
+                          Current Position
+                        </span>
+                      </div>
+                    )}
                   </div>
                   
                   {/* Description */}
@@ -142,7 +155,7 @@ export default function Experience() {
                           viewport={{ once: true }}
                           transition={{ duration: 0.5, delay: achIndex * 0.1 }}
                         >
-                          <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-2"></div>
+                          <div className="flex-shrink-0 w-2 h-2 bg-[#86198f] rounded-full mt-2"></div>
                           <span className="text-gray-700 dark:text-gray-200 leading-relaxed">{achievement}</span>
                         </motion.li>
                       ))}
@@ -175,7 +188,7 @@ export default function Experience() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {"Let&apos;s Connect"}
+              Let&apos;s Work Together
             </motion.a>
           </div>
         </motion.div>

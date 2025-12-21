@@ -22,13 +22,11 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-purple-950 dark:to-pink-950"></div>
-      
-      {/* Floating elements */}
-      <div className="absolute top-20 right-20 w-32 h-32 bg-purple-200 dark:bg-purple-900 rounded-full opacity-20 animate-blob"></div>
-      <div className="absolute bottom-20 left-20 w-24 h-24 bg-pink-200 dark:bg-pink-900 rounded-full opacity-20 animate-blob animation-delay-2000"></div>
+    <section id="about" className="py-20 relative overflow-visible -mt-80 md:-mt-96 pt-80 md:pt-96">
+      {/* Smooth gradient transition from hero */}
+      <div className="absolute top-0 left-0 right-0 h-80 md:h-96 bg-gradient-to-b from-gray-50 via-gray-50/90 via-gray-50/70 to-gray-50 dark:from-gray-950 dark:via-gray-950/90 dark:via-gray-950/70 dark:to-gray-950 pointer-events-none"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-gray-50 dark:bg-gray-950"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -39,7 +37,7 @@ export default function About() {
           className="text-center mb-16"
         >
           <motion.div
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-6"
+            className="inline-flex items-center justify-center w-16 h-16 bg-[#86198f] rounded-full mb-6"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -119,7 +117,7 @@ export default function About() {
                 whileHover={{ scale: 1.02, y: -5 }}
               >
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-[#86198f] rounded-xl flex items-center justify-center">
                     <highlight.icon className="text-white text-xl" />
                   </div>
                   <div>

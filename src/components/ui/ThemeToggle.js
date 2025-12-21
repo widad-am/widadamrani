@@ -26,7 +26,7 @@ export default function ThemeToggle() {
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       <motion.div
-        className="absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow-md flex items-center justify-center"
+        className="absolute top-0.5 left-0.5 w-5 h-5 bg-white dark:bg-gray-800 rounded-full shadow-md flex items-center justify-center z-10"
         animate={{
           x: theme === 'dark' ? 20 : 0,
         }}
@@ -36,18 +36,19 @@ export default function ThemeToggle() {
           initial={false}
           animate={{ rotate: theme === 'dark' ? 180 : 0 }}
           transition={{ duration: 0.3 }}
+          className="flex items-center justify-center"
         >
           {theme === 'light' ? (
-            <FiSun className="w-3 h-3 text-yellow-500" />
+            <FiSun className="w-3.5 h-3.5 text-yellow-500" />
           ) : (
-            <FiMoon className="w-3 h-3 text-blue-500" />
+            <FiMoon className="w-3.5 h-3.5 text-white" />
           )}
         </motion.div>
       </motion.div>
       
       {/* Background gradient animation */}
       <motion.div
-        className="absolute inset-0 rounded-full opacity-0 dark:opacity-100"
+        className="absolute inset-0 rounded-full opacity-0 dark:opacity-100 z-0"
         style={{
           background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
         }}

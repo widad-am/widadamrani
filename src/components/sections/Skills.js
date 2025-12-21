@@ -17,7 +17,7 @@ const skills = {
   },
   "APIs & Integrations": { 
     icon: FiCpu, 
-    list: ["RESTful APIs", "GraphQL", "WebSocket"],
+    list: ["RESTful APIs", "GraphQL", "WebSocket", "OpenAI SDK"],
     gradient: "from-green-500 to-emerald-500",
     color: "green"
   },
@@ -35,7 +35,7 @@ const skills = {
   },
   "Database & Cloud": { 
     icon: FiDatabase, 
-    list: ["Supabase", "PostgreSQL", "MySQL", "Cloud Services"],
+    list: ["Supabase", "PostgreSQL", "MySQL", "MongoDB", "Cloud Services"],
     gradient: "from-teal-500 to-blue-500",
     color: "teal"
   },
@@ -51,6 +51,8 @@ const skillLevels = {
   "Tailwind CSS": 95,
   "TypeScript": 80,
   "PostgreSQL": 85,
+  "MongoDB": 80,
+  "OpenAI SDK": 85,
   "Docker": 75,
   "Git": 90,
   "GraphQL": 70,
@@ -59,12 +61,8 @@ const skillLevels = {
 export default function Skills() {
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-purple-50 to-blue-50 dark:from-gray-900 dark:via-purple-950 dark:to-blue-950"></div>
-      
-      {/* Floating elements */}
-      <div className="absolute top-20 right-20 w-32 h-32 bg-purple-200 dark:bg-purple-900 rounded-full opacity-20 animate-blob"></div>
-      <div className="absolute bottom-20 left-20 w-24 h-24 bg-blue-200 dark:bg-blue-900 rounded-full opacity-20 animate-blob animation-delay-2000"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-gray-50 dark:bg-gray-950"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -136,7 +134,7 @@ export default function Skills() {
               </div>
               
               {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-600/5 to-pink-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute inset-0 rounded-3xl bg-[#86198f]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             </motion.div>
           ))}
         </div>

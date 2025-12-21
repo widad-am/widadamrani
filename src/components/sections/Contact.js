@@ -52,12 +52,8 @@ const socialLinks = [
 export default function Contact() {
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-purple-950 dark:to-pink-950"></div>
-      
-      {/* Floating elements */}
-      <div className="absolute top-20 right-20 w-32 h-32 bg-purple-200 dark:bg-purple-900 rounded-full opacity-20 animate-blob"></div>
-      <div className="absolute bottom-20 left-20 w-24 h-24 bg-pink-200 dark:bg-pink-900 rounded-full opacity-20 animate-blob animation-delay-2000"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-gray-50 dark:bg-gray-950"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -68,7 +64,7 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <motion.div
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-6"
+            className="inline-flex items-center justify-center w-16 h-16 bg-[#86198f] rounded-full mb-6"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -209,7 +205,7 @@ export default function Contact() {
                 
                 <motion.button
                   type="submit"
-                  className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center space-x-2"
+                  className="w-full px-8 py-4 bg-[#86198f] text-white font-semibold rounded-xl hover:bg-[#701a7a] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center space-x-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

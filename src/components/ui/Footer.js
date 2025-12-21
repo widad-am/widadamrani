@@ -35,7 +35,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-br from-gray-100 via-purple-50 to-pink-50 dark:from-gray-950 dark:via-purple-950 dark:to-pink-950 border-t border-gray-200 dark:border-gray-800">
+    <footer className="relative overflow-hidden bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
       {/* Floating elements */}
       <div className="absolute top-10 left-20 w-32 h-32 bg-purple-500/10 dark:bg-purple-900/20 rounded-full animate-blob"></div>
       <div className="absolute bottom-10 right-20 w-24 h-24 bg-blue-500/10 dark:bg-blue-900/20 rounded-full animate-blob animation-delay-2000"></div>
@@ -152,7 +152,7 @@ export default function Footer() {
             
             <motion.button
               onClick={scrollToTop}
-              className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-glow hover:shadow-glow-lg transform hover:-translate-y-1"
+              className="flex items-center space-x-2 px-4 py-2 bg-[#86198f] text-white rounded-full hover:bg-[#701a7a] transition-all duration-300 shadow-glow hover:shadow-glow-lg transform hover:-translate-y-1"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}

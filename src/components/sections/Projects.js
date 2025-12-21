@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { FiExternalLink, FiGithub, FiArrowRight } from 'react-icons/fi';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -18,8 +19,27 @@ const projects = [
     technologies: ["Next.js", "Supabase", "Jotai", "PayXpert", "Resend API", "Google Maps API"],
     gradient: "from-blue-500 to-cyan-500",
     icon: "💼",
-    liveDemo: "https://www.prestafreedom.com/"
+    liveDemo: "https://www.prestafreedom.com/",
+    image: "/images/PrestaClient.jpg"
     // sourceCode: "#"
+  },
+  {
+    title: "Maroc Fer",
+    description: "A modern and professional website for Maroc Fer, showcasing their railway services and operations. The platform features a clean design, responsive layout, and intuitive navigation to provide users with comprehensive information about Morocco's railway services.",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Responsive Design"],
+    gradient: "from-amber-500 to-orange-500",
+    icon: "🚂",
+    liveDemo: "https://marocfer.com/",
+    image: "/images/marocfer.jpg"
+  },
+  {
+    title: "KGM Mobility Morocco",
+    description: "An elegant automotive website for KGM Mobility Morocco, featuring their vehicle lineup including Tivoli, Torres, Rexton, and Grand Musso. The site provides an immersive experience with modern design, interactive elements, and comprehensive vehicle information.",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Modern UI/UX"],
+    gradient: "from-indigo-500 to-blue-500",
+    icon: "🚗",
+    liveDemo: "https://www.kg-mobility.ma/",
+    image: "/images/KGM.jpg"
   },
   {
     title: "JumiDeal: Smart Vendor Management App",
@@ -67,81 +87,86 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              className="group relative"
+              className="group"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
             >
-              <div className="relative h-full">
-                {/* Main card */}
-                <div className="h-full bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
-                  {/* Header with gradient */}
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${project.gradient} flex items-center justify-center mb-6 text-2xl`}>
-                    {project.icon}
+              <div className="relative h-full bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-500 group-hover:-translate-y-1">
+                {/* Project Image - Hero Style */}
+                {project.image ? (
+                  <div className="relative w-full h-64 lg:h-80 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      priority={index < 2}
+                    />
                   </div>
+                ) : (
+                  // Header for cards without image
+                  <div className="p-6 lg:p-8 pb-4 border-b border-gray-200 dark:border-gray-800">
+                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${project.gradient} mb-4 text-2xl shadow-md`}>
+                      {project.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                      {project.title}
+                    </h3>
+                  </div>
+                )}
+
+                {/* Content Section */}
+                <div className="p-6 lg:p-8">
+                  {/* Title for cards with image */}
+                  {project.image && (
+                    <div className="mb-4">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                        {project.title}
+                      </h3>
+                    </div>
+                  )}
                   
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 group-hover:text-purple-600 transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-sm lg:text-base">
                     {project.description}
                   </p>
-                  
+
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map(tech => (
                       <span 
                         key={tech} 
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 text-sm font-medium rounded-full hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-300"
+                        className="px-3 py-1.5 bg-gray-50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  
-                  {/* Action buttons */}
-                  <div className="flex items-center space-x-4">
-                    {project.liveDemo && (
-                      <motion.a 
-                        href={project.liveDemo} 
-                        className="flex items-center text-sm text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 group/link"
-                        whileHover={{ x: 5 }}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FiExternalLink className="mr-2 group-hover/link:scale-110 transition-transform duration-300" />
-                        Live Demo
-                      </motion.a>
-                    )}
-                    {/*
-                    <motion.a 
-                      href={project.sourceCode || "#"} 
-                      className="flex items-center text-sm text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 group/link"
-                      whileHover={{ x: 5 }}
+
+                  {/* Action Button */}
+                  {project.liveDemo && (
+                    <motion.a
+                      href={project.liveDemo}
+                      className="inline-flex items-center px-5 py-2.5 bg-[#86198f] text-white text-sm font-medium rounded-lg hover:bg-[#701a7a] transition-all duration-300 shadow-md hover:shadow-lg group/btn"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FiGithub className="mr-2 group-hover/link:scale-110 transition-transform duration-300" />
-                      Source Code
+                      View Project
+                      <FiArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                     </motion.a>
-                    */}
-                  </div>
-                  <motion.div
-                    className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <FiArrowRight className="text-sm" />
-                  </motion.div>
+                  )}
                 </div>
-                
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-600/5 to-pink-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                {/* Hover effect */}
+                <div className="absolute inset-0 rounded-2xl bg-[#86198f]/0 group-hover:bg-[#86198f]/5 pointer-events-none transition-all duration-500"></div>
               </div>
             </motion.div>
           ))}
@@ -157,7 +182,7 @@ export default function Projects() {
         >
           <motion.a
             href="#contact"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="inline-flex items-center px-8 py-4 bg-[#86198f] text-white font-semibold rounded-full hover:bg-[#701a7a] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
