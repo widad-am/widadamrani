@@ -18,8 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
       <body className={`${poppins.className} bg-gray-50 text-gray-800`}>
         <ThemeProvider>
-          <Header />
-          <main>{children}</main>
+          {children}
         </ThemeProvider>
       </body>
     </html>
