@@ -119,13 +119,13 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-[#86198f]/10"></div>
                 <div className="relative h-full flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-32 h-32 rounded-full bg-[#86198f]/20 mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
+                    <div className="w-48 h-48 rounded-full bg-[#86198f]/20 mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
                       <Image
-                        src="/images/WhatsApp Image 2024-07-26 at 17.18.31.jpg"
+                        src="/images/WhatsApp Image 2024-07-26 at 17.18.31.jpeg"
                         alt="Widad Amrani Profile Photo"
-                        width={128}
-                        height={128}
-                        className="rounded-full object-cover w-32 h-32"
+                        width={192}
+                        height={192}
+                        className="rounded-full object-cover w-48 h-48"
                         priority
                       />
                     </div>
