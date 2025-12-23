@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 
 const Button = forwardRef(({
   children,
-  variant = 'primary',
+  variant = 'primary', 
   size = 'md',
   className = '',
   disabled = false,
