@@ -1,194 +1,158 @@
 "use client";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
-];
-
-const LANGUAGES = [
-  { code: 'en', label: 'EN', flag: '🇬🇧' },
-  // { code: 'fr', label: 'FR', flag: '🇫🇷' },
-  // { code: 'de', label: 'DE', flag: '🇩🇪' },
+  { name: 'Work', popup: 'projects' },
+  { name: 'About', popup: 'faq' },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [language, setLanguage] = useState('en');
-  const [isMounted, setIsMounted] = useState(false);
-  const [showLangDropdown, setShowLangDropdown] = useState(false);
-  const langBtnRef = useRef(null);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
-    setIsMounted(true);
-    localStorage.setItem('lang', language);
-    // Placeholder: connect to your i18n logic here
-    // i18n.changeLanguage(language);
-  }, [language]);
+    const sectionIds = ['hero'];
+    const observers = sectionIds.map((id) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
+      );
+      observer.observe(el);
+      return observer;
+    });
 
-  useEffect(() => {
-    const storedLang = localStorage.getItem('lang') || 'en';
-    setLanguage(storedLang);
+    return () => observers.forEach((o) => o?.disconnect());
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Close dropdown on outside click
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (langBtnRef.current && !langBtnRef.current.contains(event.target)) {
-        setShowLangDropdown(false);
-      }
-    }
-    if (showLangDropdown) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [showLangDropdown]);
+  const isActive = (href) => href && activeSection === href.replace('#', '');
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass shadow-glow">
-      <nav className="container mx-auto px-6 flex justify-between items-center py-4">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4">
+      <nav className="workspace-window max-w-[1400px] mx-auto px-4 sm:px-5 py-3 flex justify-between items-center gap-4">
+        <motion.a
+          href="#hero"
+          className="font-mono text-lg sm:text-xl font-bold text-gray-900 dark:text-white shrink-0"
+          initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <a href="#" className="text-2xl font-bold text-gray-900 dark:text-white">
-            Widad Amrani
-          </a>
-        </motion.div>
+          widad<span className="text-[#86198f]">.dev</span>
+        </motion.a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8 items-center">
-          {navLinks.map((link, index) => (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              className="relative text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 font-medium group"
-              initial={{ opacity: 0, y: -25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#86198f] transition-all duration-300 group-hover:w-full"></span>
-            </motion.a>
-          ))}
-          
-          {/* Language Switcher */}
-          <div className="relative" ref={langBtnRef}>
-            <button
-              className="flex items-center px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 font-semibold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
-              onClick={() => setShowLangDropdown((v) => !v)}
-              aria-label="Switch language"
-            >
-              <span className="mr-1">{isMounted ? LANGUAGES.find(l => l.code === language)?.flag : LANGUAGES[0].flag}</span>
-              <span>{isMounted ? LANGUAGES.find(l => l.code === language)?.label : LANGUAGES[0].label}</span>
-              <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
-            </button>
-            {showLangDropdown && (
-              <div className="absolute right-0 mt-2 w-28 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50">
-                {LANGUAGES.map((lang) => (
-                  <button
-                    key={lang.code}
-                    className={`w-full flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${language === lang.code ? 'font-bold text-[#86198f]' : 'text-gray-700 dark:text-gray-200'}`}
-                    onClick={() => { setLanguage(lang.code); setShowLangDropdown(false); }}
-                  >
-                    <span className="mr-2">{lang.flag}</span> {lang.label}
-                  </button>
-                ))}
-              </div>
+        <div className="hidden md:flex items-center gap-3">
+          <div className="flex items-center rounded-full bg-black/[0.03] dark:bg-white/[0.04] p-1">
+            {navLinks.map((link, index) =>
+              link.popup ? (
+                <motion.button
+                  key={link.name}
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent('dock-popup-open', { detail: link.popup }))}
+                  className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-600 dark:text-gray-300 hover:text-[#86198f]"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                >
+                  {link.name}
+                </motion.button>
+              ) : (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    isActive(link.href)
+                      ? 'bg-white dark:bg-gray-800 text-[#86198f] shadow-sm'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-[#86198f]'
+                  }`}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                >
+                  {link.name}
+                </motion.a>
+              )
             )}
           </div>
-          {/* Theme Toggle */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <ThemeToggle />
-          </motion.div>
-          
+
+          <ThemeToggle />
+
           <motion.a
             href="/assets/widadamrani.pdf"
             download
-            className="px-6 py-2 bg-[#86198f] text-white rounded-full font-medium hover:bg-[#701a7a] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            initial={{ opacity: 0, scale: 0.8 }}
+            className="px-5 py-2 bg-[#86198f] text-white text-sm rounded-full font-medium hover:bg-[#701a7a] transition-all duration-300 shadow-md"
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.4, delay: 0.35 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
           >
-            Resume
+            resume.pdf
           </motion.a>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center space-x-4">
+        <div className="md:hidden flex items-center gap-3">
           <ThemeToggle />
-          <motion.button
+          <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 p-2 rounded-lg hover:bg-white/20 dark:hover:bg-black/20"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"
+            aria-label="Toggle menu"
           >
             {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
-          </motion.button>
+          </button>
         </div>
       </nav>
 
-      {/* Mobile Navigation */}
       {isOpen && (
         <motion.div
-          className="md:hidden glass"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.3 }}
+          className="md:hidden workspace-window max-w-[1400px] mx-auto mt-2 p-4"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
         >
-          <div className="px-6 py-4 space-y-2">
-            {navLinks.map((link, index) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                className="block px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-white/20 dark:hover:bg-black/20 transition-all duration-300 font-medium"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </motion.a>
-            ))}
-            <motion.a
+          <div className="space-y-1">
+            {navLinks.map((link) =>
+              link.popup ? (
+                <button
+                  key={link.name}
+                  type="button"
+                  className="block w-full text-left px-4 py-3 rounded-xl font-medium text-gray-700 dark:text-gray-300 hover:bg-[#86198f]/5 hover:text-[#86198f] transition-colors"
+                  onClick={() => {
+                    setIsOpen(false);
+                    window.dispatchEvent(new CustomEvent('dock-popup-open', { detail: link.popup }));
+                  }}
+                >
+                  {link.name}
+                </button>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block px-4 py-3 rounded-xl font-medium text-gray-700 dark:text-gray-300 hover:bg-[#86198f]/5 hover:text-[#86198f] transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )
+            )}
+            <a
               href="/assets/widadamrani.pdf"
               download
-              className="w-full mt-4 px-6 py-3 bg-[#86198f] text-white rounded-lg font-medium hover:bg-[#701a7a] transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.5 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="block mt-2 px-4 py-3 bg-[#86198f] text-white text-center rounded-xl font-medium"
+              onClick={() => setIsOpen(false)}
             >
-              Resume
-            </motion.a>
+              resume.pdf
+            </a>
           </div>
         </motion.div>
       )}
     </header>
   );
-} 
+}

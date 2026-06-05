@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
-import { FiUser, FiCode, FiTrendingUp, FiHeart } from 'react-icons/fi';
+import { FiCode, FiTrendingUp, FiHeart } from 'react-icons/fi';
+import MacWidget from '@/components/ui/MacWidget';
 
 export default function About() {
   const highlights = [
@@ -22,118 +23,84 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 relative overflow-visible -mt-80 md:-mt-96 pt-80 md:pt-96">
-      {/* Smooth gradient transition from hero */}
-      <div className="absolute top-0 left-0 right-0 h-80 md:h-96 bg-gradient-to-b from-gray-50 via-gray-50/90 via-gray-50/70 to-gray-50 dark:from-gray-950 dark:via-gray-950/90 dark:via-gray-950/70 dark:to-gray-950 pointer-events-none"></div>
-      {/* Background */}
-      <div className="absolute inset-0 bg-gray-50 dark:bg-gray-950"></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="about" className="py-20 relative overflow-hidden mac-desktop">
+      <div className="container mx-auto px-4 sm:px-6 max-w-[1200px] relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="mb-10"
         >
-          <motion.div
-            className="inline-flex items-center justify-center w-16 h-16 bg-[#86198f] rounded-full mb-6"
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <FiUser className="text-white text-2xl" />
-          </motion.div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text">About Me</span>
+          <h2 className="font-hand text-4xl sm:text-5xl text-gray-900 dark:text-gray-50 mb-2">
+            About Me
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Passionate developer crafting digital experiences that make a difference
-          </p>
+          <p className="text-gray-600 dark:text-gray-400 max-w-xl">Who I am and how I build products.</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Main content */}
+        <div className="grid lg:grid-cols-5 gap-6">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="lg:col-span-3"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <div className="space-y-6">
-              <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
-                I am a passionate and experienced <span className="font-semibold text-purple-600">Full Stack Developer</span> with three years of dedicated expertise in building modern web and mobile applications. My specialization lies in creating robust, scalable solutions using cutting-edge technologies like Next.js, React, React Native, and Supabase.
-              </p>
-              
-              <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
-                My journey has led me to architect and lead the development of comprehensive service management platforms from the ground up. I thrive in dynamic environments and have a proven track record of implementing complete API ecosystems and developing innovative multi-platform applications, such as barcode scanning systems.
-              </p>
-              
-              <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
-                I am driven by the challenge of solving complex problems and delivering high-quality, user-centric products that exceed expectations.
-              </p>
-            </div>
+            <MacWidget className="p-6 sm:p-8" padding={false}>
+              <div className="space-y-5 text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p>
+                  I am a passionate and experienced <span className="font-semibold text-[#86198f] dark:text-[#c084fc]">Full Stack Developer</span> with three years of dedicated expertise in building modern web and mobile applications. My specialization lies in creating robust, scalable solutions using cutting-edge technologies like Next.js, React, React Native, and Supabase.
+                </p>
+                <p>
+                  My journey has led me to architect and lead the development of comprehensive service management platforms from the ground up. I thrive in dynamic environments and have a proven track record of implementing complete API ecosystems and developing innovative multi-platform applications, such as barcode scanning systems.
+                </p>
+                <p>
+                  I am driven by the challenge of solving complex problems and delivering high-quality, user-centric products that exceed expectations.
+                </p>
+              </div>
 
-            {/* Stats */}
-            <motion.div
-              className="grid grid-cols-3 gap-6 mt-12"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600 mb-2">3+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+              <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-black/5">
+                {[
+                  { value: '3+', label: 'Years' },
+                  { value: '15+', label: 'Projects' },
+                  { value: '100%', label: 'Satisfaction' },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <div className="text-2xl sm:text-3xl font-bold text-[#86198f] dark:text-[#c084fc]">{stat.value}</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stat.label}</div>
+                  </div>
+                ))}
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-pink-600 mb-2">15+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Client Satisfaction</div>
-              </div>
-            </motion.div>
+            </MacWidget>
           </motion.div>
 
-          {/* Highlights cards */}
           <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="lg:col-span-2 space-y-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={highlight.title}
-                className="glass dark:glass-dark p-6 rounded-2xl shadow-glow hover:shadow-glow-hover transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-[#86198f] rounded-xl flex items-center justify-center">
-                    <highlight.icon className="text-white text-xl" />
+            {highlights.map((highlight) => (
+              <MacWidget key={highlight.title}>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-[#86198f] rounded-xl flex items-center justify-center shrink-0">
+                    <highlight.icon className="text-white text-lg" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                    <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
                       {highlight.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                       {highlight.description}
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </MacWidget>
             ))}
           </motion.div>
         </div>
       </div>
     </section>
   );
-} 
+}

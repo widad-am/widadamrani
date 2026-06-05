@@ -1,166 +1,185 @@
 "use client";
 import { motion } from 'framer-motion';
-import { FiCode, FiSmartphone, FiDatabase, FiZap } from 'react-icons/fi';
 import Image from 'next/image';
+import MacWidget from '@/components/ui/MacWidget';
+import MacFolder from '@/components/ui/MacFolder';
+import MacWeatherWidget from '@/components/ui/MacWeatherWidget';
+
+const expertise = [
+  'Full Stack Development',
+  'React & Next.js Applications',
+  'Mobile Apps with React Native',
+  'API Design & Integrations',
+  'Supabase & PostgreSQL',
+];
+
+const desktopProjects = [
+  { label: 'Project 01: PrestaFreedom', popup: 'projects' },
+  { label: 'Project 02: EXEED Maroc', popup: 'projects' },
+  { label: 'Project 03: JumiDeal App', popup: 'projects' },
+  { label: 'Project 04: KGM Mobility', popup: 'projects' },
+];
 
 export default function Hero() {
-  const floatingIcons = [
-    { icon: FiCode, delay: 0, x: -20, y: -30 },
-    { icon: FiSmartphone, delay: 0.5, x: 20, y: -20 },
-    { icon: FiDatabase, delay: 1, x: -15, y: 25 },
-    { icon: FiZap, delay: 1.5, x: 25, y: 15 },
-  ];
-
   return (
-    <section id="hero" className="relative w-full min-h-screen flex items-center justify-center overflow-visible bg-gray-50 dark:bg-gray-950 pb-0">
-      {/* Smooth transition to next section - very extended */}
-      <div className="absolute bottom-0 left-0 right-0 h-80 md:h-96 bg-gradient-to-b from-transparent via-transparent via-gray-50/10 via-gray-50/40 via-gray-50/70 to-gray-50 dark:via-gray-950/10 dark:via-gray-950/40 dark:via-gray-950/70 dark:to-gray-950 pointer-events-none"></div>
-
-      {/* Floating icons */}
-      {floatingIcons.map((item, index) => (
-        <motion.div
-          key={index}
-          className="absolute text-[#86198f]/20 dark:text-[#86198f]/10"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: item.delay }}
-        >
-          <motion.div
-            animate={{
-              x: [0, item.x, 0],
-              y: [0, item.y, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="text-4xl"
-          >
-            <item.icon />
-          </motion.div>
-        </motion.div>
-      ))}
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-16">
-          {/* Text Content */}
-          <motion.div
-            className="text-center lg:text-left max-w-2xl pt-20 lg:pt-0"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.p
-              className="text-lg font-medium text-[#86198f] mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              👋 Hello, I&apos;m Widad Amrani
-            </motion.p>
-            
-            <motion.h1
-              className="text-5xl lg:text-7xl font-bold leading-tight mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <span className="gradient-text">Full Stack</span>
-              <br />
-              <span className="text-gray-800 dark:text-gray-200">Developer</span>
-            </motion.h1>
-            
-            <motion.p
-              className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              Crafting exceptional digital experiences with modern technologies. 
-              I build robust, scalable applications that users love to interact with.
-            </motion.p>
-            
+    <section id="hero" className="mac-desktop relative min-h-0 sm:min-h-screen pt-8 sm:pt-10 pb-36 sm:pb-32 lg:pb-28 overflow-x-hidden">
+      <div className="relative max-w-[1500px] mx-auto px-3 xs:px-4 sm:px-8 lg:min-h-[calc(100vh-5rem)]">
+        {/* Top widgets row */}
+        <div className="flex flex-col xs:flex-row xs:flex-wrap items-stretch xs:items-start justify-between gap-3 sm:gap-4 pt-2 sm:pt-8">
+          <div className="flex flex-col xs:flex-row xs:flex-wrap items-stretch xs:items-start gap-3 sm:gap-4 w-full xs:w-auto">
+            {/* Expertise widget */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-              initial={{ opacity: 0, y: 30 }}
+              className="w-full xs:w-auto"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1 }}
+              transition={{ duration: 0.6 }}
             >
-              <motion.a
-                href="#contact"
-                className="px-8 py-4 bg-[#86198f] text-white font-semibold rounded-full hover:bg-[#701a7a] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Let&apos;s Work Together
-              </motion.a>
-              <motion.a
-                href="#projects"
-                className="px-8 py-4 border-2 border-[#86198f] text-[#86198f] font-semibold rounded-full hover:bg-[#86198f] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View My Work
-              </motion.a>
+              <MacWidget className="w-full xs:w-[280px] sm:w-[300px]">
+                <div className="flex items-start justify-between gap-2 mb-4">
+                  <h2 className="font-hand text-xl sm:text-2xl text-gray-800 dark:text-gray-100 leading-tight">
+                    &lt; My Expertise:
+                  </h2>
+                  <span className="mac-done-btn shrink-0">
+                    <span aria-hidden="true">☺</span> Done
+                  </span>
+                </div>
+                <ul className="space-y-2.5">
+                  {expertise.map((item) => (
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-gray-700 dark:text-gray-300">
+                      <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </MacWidget>
             </motion.div>
-          </motion.div>
 
-          {/* Profile Card */}
+            {/* Weather widget */}
+            <motion.div
+              className="w-full xs:w-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <MacWeatherWidget />
+            </motion.div>
+          </div>
+
+          {/* Messages notification */}
           <motion.div
-            className="relative"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            className="hidden sm:block max-w-xs"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative">
-              {/* Main profile card */}
-              <div className="w-80 h-80 rounded-3xl glass dark:glass-dark shadow-glow overflow-hidden relative flex items-center justify-center">
-                <div className="absolute inset-0 bg-[#86198f]/10"></div>
-                <div className="relative h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-48 h-48 rounded-full bg-[#86198f]/20 mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
-                      <Image
-                        src="/images/WhatsApp Image 2024-07-26 at 17.18.31.jpeg"
-                        alt="Widad Amrani Profile Photo"
-                        width={192}
-                        height={192}
-                        className="rounded-full object-cover w-48 h-48"
-                        priority
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">Widad Amrani</h3>
-                    <p className="text-gray-600 dark:text-gray-400">Full Stack Developer</p>
-                  </div>
+            <div className="mac-notification">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-7 h-7 rounded-lg bg-green-500 flex items-center justify-center text-white text-xs font-bold">
+                  M
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-gray-800 dark:text-gray-100">MESSAGES</p>
+                  <p className="text-[10px] text-gray-500 dark:text-gray-400">now</p>
+                </div>
+              </div>
+              <p className="text-sm text-gray-700 dark:text-gray-300 leading-snug mb-3">
+                Excited to collaborate? Send a message and let&apos;s build something cool.
+              </p>
+              <button
+                type="button"
+                className="text-sm font-semibold text-[#86198f] dark:text-[#c084fc] hover:underline"
+                onClick={() => window.dispatchEvent(new CustomEvent('dock-popup-open', { detail: 'contact' }))}
+              >
+                Connect
+              </button>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Desktop body */}
+        <div className="relative mt-4 sm:mt-4 lg:mt-0 lg:min-h-[520px]">
+          {/* Left desktop icons */}
+          <div className="flex flex-row justify-center xs:justify-start gap-4 sm:gap-6 lg:gap-8 lg:absolute lg:left-0 lg:top-8 z-10 mb-4 sm:mb-8 lg:mb-0">
+            <MacFolder label="About Me" popup="faq" />
+            <MacFolder label="resume.pdf" href="/assets/widadamrani.pdf" download />
+          </div>
+
+          {/* Right project folders */}
+          <div className="hidden lg:flex flex-col gap-6 absolute right-0 top-8 z-10">
+            {desktopProjects.map((project, i) => (
+              <motion.div
+                key={project.label}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
+              >
+                <MacFolder label={project.label} popup={project.popup} className="max-w-[200px]" />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Center: profile + handwritten notes */}
+          <div className="flex flex-col items-center justify-center lg:absolute lg:inset-0 lg:pointer-events-none">
+            <motion.div
+              className="relative flex flex-col items-center pointer-events-auto"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              {/* Annotation: Hey I'm Widad */}
+              <div className="font-hand text-lg xs:text-xl sm:text-2xl text-gray-800 dark:text-gray-100 mb-2 self-center xs:self-start ml-0 xs:-ml-4 sm:-ml-8 rotate-[-3deg] max-w-full px-1">
+                Hey, I&apos;m Widad
+                <svg className="w-16 h-10 text-gray-600 dark:text-gray-400 mt-1" viewBox="0 0 80 40" fill="none">
+                  <path d="M5 5 C30 30, 50 35, 75 30" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+                </svg>
+              </div>
+
+              <div className="relative w-36 h-36 xs:w-44 xs:h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64">
+                <div className="absolute inset-0 rounded-full bg-[#86198f]/10 blur-2xl scale-110" />
+                <div className="relative w-full h-full rounded-full overflow-hidden ring-4 ring-white dark:ring-gray-700 shadow-2xl">
+                  <Image
+                    src="/images/WhatsApp Image 2024-07-26 at 17.18.31.jpeg"
+                    alt="Widad Amrani"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </div>
 
-              {/* Floating stats cards */}
-              <motion.div
-                className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl glass dark:glass-dark shadow-glow"
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="h-full flex flex-col items-center justify-center">
-                  <span className="text-2xl font-bold text-purple-600 dark:text-purple-400">3+</span>
-                  <span className="text-xs text-gray-600 dark:text-gray-400">Years</span>
-                </div>
-              </motion.div>
+              {/* Annotation: bio */}
+              <div className="font-hand text-sm xs:text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-[260px] xs:max-w-xs sm:max-w-sm text-center mt-3 sm:mt-4 rotate-[1deg] leading-relaxed px-2">
+                <svg className="w-12 h-8 text-gray-500 dark:text-gray-400 mx-auto mb-1 rotate-180" viewBox="0 0 48 32" fill="none">
+                  <path d="M5 28 C20 5, 30 5, 43 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+                </svg>
+                A Full Stack Developer who ships scalable web &amp; mobile products — from APIs to polished UIs.
+              </div>
+            </motion.div>
+          </div>
 
-              <motion.div
-                className="absolute -bottom-4 -left-4 w-24 h-24 rounded-2xl glass dark:glass-dark shadow-glow"
-                animate={{ y: [10, -10, 10] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              >
-                <div className="h-full flex flex-col items-center justify-center">
-                  <span className="text-2xl font-bold text-pink-600 dark:text-pink-400">15+</span>
-                  <span className="text-xs text-gray-600 dark:text-gray-400">Projects</span>
-                </div>
-              </motion.div>
-            </div>
+          {/* Vinyl / vibe widget */}
+          <motion.div
+            className="mt-6 sm:mt-8 flex justify-center lg:block lg:mt-0 lg:absolute lg:left-8 lg:bottom-4 z-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <MacWidget className="w-36 sm:w-40 text-center" padding>
+              <div className="mac-vinyl mx-auto mb-3" aria-hidden="true">
+                <div className="mac-vinyl-disc" />
+              </div>
+              <p className="font-hand text-lg text-gray-800 dark:text-gray-100">Ship Code</p>
+            </MacWidget>
           </motion.div>
+        </div>
+
+        {/* Mobile project folders */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8 pb-2 lg:hidden">
+          {desktopProjects.map((project) => (
+            <MacFolder key={project.label} label={project.label} popup={project.popup} />
+          ))}
         </div>
       </div>
     </section>
   );
-} 
+}

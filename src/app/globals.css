@@ -54,7 +54,12 @@
   
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 40px;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
   
   body {
@@ -63,6 +68,10 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body {
+    background-color: #0f1117;
   }
 
   /* Typography improvements */
@@ -256,6 +265,612 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Workspace / desktop-inspired UI */
+  .workspace-bg {
+    background-color: #f3f0ea;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(134, 25, 143, 0.06) 0%, transparent 42%),
+      radial-gradient(circle at 80% 0%, rgba(59, 130, 246, 0.05) 0%, transparent 35%),
+      radial-gradient(circle, rgba(120, 113, 108, 0.14) 1px, transparent 1px);
+    background-size: auto, auto, 24px 24px;
+  }
+
+  .dark .workspace-bg {
+    background-color: #0f1117;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(134, 25, 143, 0.12) 0%, transparent 42%),
+      radial-gradient(circle at 80% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 35%),
+      radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: auto, auto, 24px 24px;
+  }
+
+  .workspace-window {
+    @apply bg-white/90 dark:bg-[#171a22]/95 backdrop-blur-xl border border-black/5 dark:border-white/10 rounded-2xl shadow-[0_20px_60px_-24px_rgba(15,23,42,0.35)];
+  }
+
+  .workspace-titlebar {
+    @apply bg-white/70 dark:bg-white/5;
+  }
+
+  .workspace-widget {
+    @apply workspace-window p-4 sm:p-5;
+  }
+
+  .workspace-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-black/5 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1.5 text-xs font-medium text-gray-600 dark:text-gray-300;
+  }
+
+  .workspace-check {
+    @apply inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200;
+  }
+
+  .workspace-check-dot {
+    @apply w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-[10px] font-bold shrink-0;
+  }
+
+  .workspace-file-row {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-[#86198f]/5 dark:hover:bg-[#86198f]/10 transition-colors duration-200;
+  }
+
+  /* macOS desktop UI */
+  .mac-desktop {
+    background-color: #f3f0ea;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 15% 0%, rgba(134, 25, 143, 0.05) 0%, transparent 55%),
+      radial-gradient(circle, rgba(120, 113, 108, 0.14) 1px, transparent 1px);
+    background-size: auto, 24px 24px;
+    transition: background-color 0.45s ease, background-image 0.45s ease;
+  }
+
+  .dark .mac-desktop {
+    background-color: #141418;
+    background-image:
+      radial-gradient(ellipse 80% 55% at 15% 5%, rgba(134, 25, 143, 0.18) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 45% at 85% 15%, rgba(59, 130, 246, 0.1) 0%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: auto, auto, 24px 24px;
+  }
+
+  .mac-menubar {
+    @apply bg-white/75 backdrop-blur-xl border-b border-black/[0.08];
+    transition: background-color 0.35s ease, border-color 0.35s ease;
+  }
+
+  .dark .mac-menubar {
+    background: rgba(22, 22, 24, 0.78);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .mac-menubar-text {
+    @apply text-gray-800;
+  }
+
+  .dark .mac-menubar-text {
+    @apply text-gray-100;
+  }
+
+  .mac-menubar-text-muted {
+    @apply text-gray-700;
+  }
+
+  .dark .mac-menubar-text-muted {
+    @apply text-gray-300;
+  }
+
+  .mac-theme-btn {
+    @apply flex items-center justify-center w-6 h-6 rounded-md hover:bg-black/[0.06] transition-colors;
+  }
+
+  .dark .mac-theme-btn {
+    @apply hover:bg-white/[0.1];
+  }
+
+  .mac-widget {
+    @apply bg-white rounded-2xl shadow-[0_8px_32px_-8px_rgba(0,0,0,0.12)] border border-black/[0.04];
+    transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .dark .mac-widget {
+    background: rgba(38, 38, 42, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 8px 32px -8px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .mac-done-btn {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-bold text-gray-800;
+    background: #f5d547;
+  }
+
+  .mac-weather-widget {
+    @apply flex items-center gap-3 px-4 py-3 rounded-2xl text-white shadow-lg;
+    background: linear-gradient(145deg, #5eb3f5, #3a8fd9);
+    min-width: 120px;
+  }
+
+  .mac-notification {
+    @apply bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.2)] border border-black/[0.06];
+    transition: background-color 0.35s ease, border-color 0.35s ease;
+  }
+
+  .dark .mac-notification {
+    background: rgba(44, 44, 48, 0.92);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.55);
+  }
+
+  .mac-folder {
+    @apply flex flex-col items-center gap-1.5 w-[88px] text-center no-underline transition-transform duration-200 hover:scale-105;
+  }
+
+  .mac-folder-icon {
+    @apply relative w-14 h-11;
+  }
+
+  .mac-folder-tab {
+    @apply absolute top-0 left-1 w-7 h-2.5 rounded-t-md;
+    background: linear-gradient(180deg, #6db4ff 0%, #4a9af5 100%);
+  }
+
+  .mac-folder-body {
+    @apply absolute bottom-0 left-0 right-0 h-9 rounded-lg rounded-tl-sm shadow-md;
+    background: linear-gradient(180deg, #5aabf5 0%, #3d8ee8 50%, #2d7ed4 100%);
+  }
+
+  .mac-folder-label {
+    @apply text-[11px] leading-tight text-gray-800 font-medium px-1;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  @media (max-width: 639px) {
+    .mac-folder {
+      @apply w-full max-w-[88px];
+    }
+
+    .mac-weather-widget {
+      min-width: 0;
+    }
+  }
+
+  .dark .mac-folder-label {
+    @apply text-gray-100;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  }
+
+  .mac-vinyl {
+    @apply w-16 h-16 rounded-xl bg-gray-100 flex items-center justify-center;
+    transition: background-color 0.35s ease;
+  }
+
+  .dark .mac-vinyl {
+    @apply bg-gray-800;
+  }
+
+  .mac-vinyl-disc {
+    @apply w-12 h-12 rounded-full;
+    background: radial-gradient(circle at center, #1a1a1a 18%, #333 19%, #333 22%, #1a1a1a 23%, #1a1a1a 100%);
+    box-shadow: inset 0 0 0 2px #555;
+  }
+
+  .mac-dock-wrapper {
+    pointer-events: none;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .mac-dock {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    padding: 3px 10px 5px;
+    border-radius: 18px;
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow:
+      0 0 0 0.5px rgba(0, 0, 0, 0.08),
+      0 10px 40px rgba(0, 0, 0, 0.18),
+      inset 0 0.5px 0 rgba(255, 255, 255, 0.7),
+      inset 0 -0.5px 0 rgba(0, 0, 0, 0.05);
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .dark .mac-dock {
+    background: rgba(36, 36, 40, 0.62);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow:
+      0 0 0 0.5px rgba(255, 255, 255, 0.06),
+      0 10px 40px rgba(0, 0, 0, 0.45),
+      inset 0 0.5px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -0.5px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .mac-dock-link {
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mac-dock-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    transform-origin: bottom center;
+    transition: transform 0.18s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+    cursor: default;
+  }
+
+  .mac-dock-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22%;
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.22),
+      0 0 0 0.5px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  .mac-dock-reflection {
+    width: 70%;
+    height: 3px;
+    margin-top: 2px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.18) 0%, transparent 70%);
+    opacity: 0.6;
+    transform: scaleY(0.5);
+  }
+
+  .mac-dock-separator {
+    width: 1px;
+    height: 44px;
+    margin: 0 6px 4px;
+    align-self: flex-end;
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 1px;
+    transition: background 0.35s ease;
+  }
+
+  .dark .mac-dock-separator {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .mac-dock-label {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: rgba(0, 0, 0, 0.85);
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+    animation: mac-dock-label-in 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
+    z-index: 10;
+  }
+
+  .dark .mac-dock-label {
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(50, 50, 54, 0.92);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .dark .workspace-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .dark .gradient-text {
+    @apply text-[#c084fc];
+  }
+
+  @keyframes mac-dock-label-in {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  .font-hand {
+    font-family: var(--font-caveat), cursive;
+  }
+
+  /* Dock v2 — Reema-style */
+  .mac-dock-wrapper-v2 {
+    pointer-events: none;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    animation: mac-dock-fade-in 0.5s ease;
+    box-sizing: border-box;
+  }
+
+  @keyframes mac-dock-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .mac-dock-v2 {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    padding: 4px 8px 6px;
+    border-radius: 1.8rem;
+    pointer-events: auto;
+    background: rgba(64, 64, 64, 0.4);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+    transform-origin: bottom center;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+
+  @media (max-width: 639px) {
+    .mac-dock-v2 {
+      gap: 2px;
+      padding: 3px 6px 5px;
+      border-radius: 1.25rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .mac-dock-separator-v2 {
+      height: 28px;
+      margin: 0 2px 2px;
+    }
+
+    .mac-dock-tooltip-v2 {
+      display: none;
+    }
+
+    .mac-dock-link-v2 {
+      min-width: 28px;
+      min-height: 28px;
+      touch-action: manipulation;
+    }
+  }
+
+  .dark .mac-dock-v2 {
+    background: rgba(30, 30, 32, 0.65);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  }
+
+  .mac-dock-link-v2 {
+    display: flex;
+    align-items: flex-end;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mac-dock-item-v2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: bottom center;
+    transition: transform 0.18s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+  }
+
+  /* Uniform glyph area — same inset for PNGs and custom SVG icons */
+  .mac-dock-icon-frame {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .mac-dock-icon-art {
+    width: 92%;
+    height: 92%;
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center bottom;
+  }
+
+  .mac-dock-icon-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .mac-dock-item-v2 img {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .mac-dock-separator-v2 {
+    width: 1.5px;
+    height: 40px;
+    margin: 0 4px 4px;
+    align-self: flex-end;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+  }
+
+  .mac-dock-tooltip-v2 {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    opacity: 1;
+    animation: mac-tooltip-in 0.2s ease;
+  }
+
+  @keyframes mac-tooltip-in {
+    from { opacity: 0; transform: translateX(-50%) translateY(6px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  .mac-dock-tooltip-bubble {
+    padding: 10px 20px;
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .mac-dock-tooltip-bubble span {
+    font-size: 13px;
+    font-weight: 500;
+    color: #000;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .dark .mac-dock-tooltip-bubble {
+    background: rgba(50, 50, 54, 0.85);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .dark .mac-dock-tooltip-bubble span {
+    color: #f5f5f5;
+  }
+
+  .mac-dock-tooltip-arrow {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Modal windows */
+  .mac-modal-overlay {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+  }
+
+  .mac-modal-window {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(24px);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+  }
+
+  .dark .mac-modal-window {
+    background: rgba(36, 36, 40, 0.96);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .mac-modal-titlebar {
+    background: rgba(246, 246, 246, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+  }
+
+  .dark .mac-modal-titlebar {
+    background: rgba(50, 50, 54, 0.95);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .mac-popup-input {
+    @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#86198f]/30 dark:focus:ring-[#c084fc]/30;
+  }
+
+  .mac-popup-row {
+    @apply flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors;
+  }
+
+  .mac-tools-card {
+    @apply p-4 rounded-2xl bg-gray-50/80 dark:bg-gray-800/50 border border-black/[0.04] dark:border-white/[0.06];
+  }
+
+  .mac-tools-pill {
+    @apply px-2.5 py-1 rounded-lg text-xs font-medium bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 border border-black/5 dark:border-white/10 shadow-sm;
+  }
+
+  .meme-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 32rem;
+  }
+
+  @media (min-width: 640px) {
+    .meme-grid {
+      gap: 1rem;
+    }
+  }
+
+  .meme-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    background: transparent;
+    border: none;
+    padding: 0;
+    overflow: visible;
+    cursor: default;
+  }
+
+  .meme-item-inner {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: transparent;
+    transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
+    will-change: transform;
+  }
+
+  .meme-item:hover .meme-item-inner {
+    transform: scale(1.14) translateY(-6px);
+  }
+
+  .meme-item-inner img {
+    display: block;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
   }
 }
 
