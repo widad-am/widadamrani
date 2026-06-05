@@ -87,7 +87,7 @@ export default function Footer() {
             >
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Quick Links</h4>
               <ul className="space-y-3">
-                {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((link, index) => (
+                {['About', 'Skills', 'Projects', 'Contact'].map((link, index) => (
                   <motion.li
                     key={link}
                     initial={{ opacity: 0, x: -20 }}
