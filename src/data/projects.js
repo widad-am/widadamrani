@@ -1,7 +1,6 @@
 export const projects = [
   {
-    title: "PrestaFreedom Backoffice",
-    description: "A comprehensive back-office system for service management, featuring an admin dashboard, analytics, automated workflows, and role-based access control.",
+    id: 'prestafreedom-backoffice',
     technologies: ["Next.js", "Supabase", "Tailwind CSS", "Chart.js", "FullCalendar", "Node-cron"],
     gradient: "from-purple-500 to-pink-500",
     icon: "🏢",
@@ -9,8 +8,7 @@ export const projects = [
     image: "/images/backofficeprestafreedom.png"
   },
   {
-    title: "PrestaFreedom Client App",
-    description: "The main client-facing web application for the PrestaFreedom service. It includes features like real-time tracking, a quoting system, and secure payment processing with PayXpert.",
+    id: 'prestafreedom-client',
     technologies: ["Next.js", "Supabase", "Jotai", "PayXpert", "Resend API", "Google Maps API"],
     gradient: "from-blue-500 to-cyan-500",
     icon: "💼",
@@ -18,8 +16,7 @@ export const projects = [
     image: "/images/PrestaClient.jpg"
   },
   {
-    title: "Maroc Fer",
-    description: "A modern and professional website for Maroc Fer, showcasing their railway services and operations with a clean design and intuitive navigation.",
+    id: 'maroc-fer',
     technologies: ["Next.js", "React", "Tailwind CSS", "Responsive Design"],
     gradient: "from-amber-500 to-orange-500",
     icon: "🚂",
@@ -27,8 +24,7 @@ export const projects = [
     image: "/images/marocfer.jpg"
   },
   {
-    title: "KGM Mobility Morocco",
-    description: "An elegant automotive website for KGM Mobility Morocco, featuring their vehicle lineup with modern design and comprehensive vehicle information.",
+    id: 'kgm-mobility',
     technologies: ["Next.js", "React", "Tailwind CSS", "Modern UI/UX"],
     gradient: "from-indigo-500 to-blue-500",
     icon: "🚗",
@@ -36,8 +32,7 @@ export const projects = [
     image: "/images/KGM.jpg"
   },
   {
-    title: "EXEED Maroc",
-    description: "The official EXEED Maroc website showcasing premium vehicle models including VX, RX, ES, and ET with immersive model exploration and REEV technology highlights.",
+    id: 'exeed-maroc',
     technologies: ["Next.js", "React", "Tailwind CSS", "Modern UI/UX", "Responsive Design"],
     gradient: "from-slate-600 to-gray-800",
     icon: "🚙",
@@ -45,8 +40,7 @@ export const projects = [
     image: "/images/Exeed.png"
   },
   {
-    title: "JAC Motors Morocco",
-    description: "A vibrant automotive website for JAC Motors Morocco with engaging video content, model exploration, and dealership information.",
+    id: 'jac-motors',
     technologies: ["Next.js", "React", "Tailwind CSS", "Modern UI/UX", "Responsive Design"],
     gradient: "from-red-500 to-rose-600",
     icon: "🚘",
@@ -54,8 +48,7 @@ export const projects = [
     image: "/images/JAC.png"
   },
   {
-    title: "JumiDeal: Smart Vendor Management App",
-    description: "A powerful mobile application for Jumia vendors that streamlines product listing, price calculation, and business management with barcode scanning and role-based dashboards.",
+    id: 'jumideal',
     technologies: ["React Native", "Expo", "TypeScript", "Supabase", "Expo Image Picker", "React Navigation"],
     gradient: "from-green-500 to-emerald-500",
     icon: "📱",
@@ -63,10 +56,16 @@ export const projects = [
     secondaryImage: "/images/appJumiDeal-scan.png"
   },
   {
-    title: "PrestaFreedom Mobile App",
-    description: "A feature-rich mobile app for PrestaFreedom clients, built with Expo Router. Includes calendar views, date pickers, and interactive elements.",
+    id: 'prestafreedom-mobile',
     technologies: ["React Native", "Expo Router", "Supabase", "RNEUI", "React Native Calendars"],
     gradient: "from-orange-500 to-red-500",
     icon: "📅",
   }
 ];
+
+export function getProjectCopy(t, project) {
+  return {
+    title: t(`projects.items.${project.id}.title`),
+    description: t(`projects.items.${project.id}.description`),
+  };
+}

@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import { useTranslation } from '@/contexts/LanguageContext';
 
-const CASABLANCA = { lat: 33.5731, lon: -7.5898, name: 'Casablanca' };
+const CASABLANCA = { lat: 33.5731, lon: -7.5898 };
 
 const WEATHER_ICONS = {
   clear: '☀️',
@@ -25,6 +26,7 @@ function weatherIconFromCode(code) {
 }
 
 export default function MacWeatherWidget({ className = '' }) {
+  const { t } = useTranslation();
   const [weather, setWeather] = useState({ status: 'loading' });
 
   useEffect(() => {
@@ -54,7 +56,6 @@ export default function MacWeatherWidget({ className = '' }) {
 
         setWeather({
           status: 'ready',
-          city: CASABLANCA.name,
           temp: Math.round(temp),
           icon: weatherIconFromCode(code),
         });
@@ -62,7 +63,6 @@ export default function MacWeatherWidget({ className = '' }) {
         if (error.name === 'AbortError') return;
         setWeather({
           status: 'error',
-          city: CASABLANCA.name,
           temp: null,
           icon: WEATHER_ICONS.clear,
         });
@@ -74,7 +74,7 @@ export default function MacWeatherWidget({ className = '' }) {
     return () => controller.abort();
   }, []);
 
-  const { city, temp, icon, status } = weather;
+  const { temp, icon, status } = weather;
   const tempLabel =
     status === 'loading' ? '…' : temp !== null ? `${temp}°C` : '—';
 
@@ -88,7 +88,7 @@ export default function MacWeatherWidget({ className = '' }) {
         {icon}
       </span>
       <div className="min-w-0">
-        <p className="text-xs font-medium opacity-90 truncate">{city}</p>
+        <p className="hidden sm:block text-xs font-medium opacity-90 truncate">{t('weather.city')}</p>
         <p className="text-2xl font-semibold leading-tight tabular-nums">{tempLabel}</p>
       </div>
     </div>

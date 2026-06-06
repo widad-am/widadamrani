@@ -1,11 +1,258 @@
 {
+  "meta": {
+    "title": "Widad Amrani | Développeuse Full Stack",
+    "description": "Portfolio de Widad Amrani, développeuse Full Stack spécialisée en Next.js, React, Node.js et Supabase."
+  },
+  "notFound": {
+    "title": "404 - Page introuvable",
+    "description": "Désolée, la page que vous recherchez n'existe pas.",
+    "cta": "Retour à l'accueil"
+  },
   "hero": {
-    "title": "Développeuse Full Stack"
+    "expertiseTitle": "< Mon expertise :",
+    "done": "Done",
+    "expertise": [
+      "Développement Full Stack",
+      "Applications React & Next.js",
+      "Backend & APIs Node.js",
+      "Applications mobiles React Native",
+      "Supabase & PostgreSQL"
+    ],
+    "messagesApp": "MESSAGES",
+    "messagesNow": "maintenant",
+    "messagesBody": "Envie de collaborer ? Envoyez un message et construisons quelque chose de cool ensemble.",
+    "connect": "Me contacter",
+    "folderAbout": "À propos",
+    "folderProjects": [
+      "Projet 01 : PrestaFreedom",
+      "Projet 02 : EXEED Maroc",
+      "Projet 03 : JumiDeal App",
+      "Projet 04 : KGM Mobility"
+    ],
+    "greeting": "Salut, je suis Widad",
+    "imageAlt": "Widad Amrani",
+    "bio": "Développeuse Full Stack qui livre des produits web et mobile scalables — des APIs aux interfaces soignées.",
+    "shipCode": "Ship Code",
+    "role": "Développeuse Full Stack"
+  },
+  "menubar": {
+    "brandMobile": "<div>a",
+    "brandDesktop": "Portfolio de Widad",
+    "contact": "Contact",
+    "profileAlt": "Widad"
+  },
+  "cv": {
+    "menuLabel": "CV",
+    "folderLabel": "cv.pdf"
   },
   "nav": {
+    "work": "Projets",
+    "about": "À propos",
     "projects": "Projets"
   },
+  "dock": {
+    "work": "Travail",
+    "tools": "Outils",
+    "faq": "FAQ",
+    "community": "Communauté",
+    "contact": "Contact",
+    "github": "GitHub",
+    "music": "Musique",
+    "trash": "Ne regarde pas"
+  },
+  "modal": {
+    "close": "Fermer",
+    "closeWindow": "Fermer la fenêtre",
+    "contactTitle": "Contact — Widad Amrani",
+    "toolsTitle": "Outils — Mon stack",
+    "trashTitle": "Ne regarde pas",
+    "projectsTitle": "Travail — Projets",
+    "faqTitle": "FAQ — À propos de moi"
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Qui je suis et comment je construis des produits.",
+    "items": [
+      {
+        "question": "Qui êtes-vous ?",
+        "answer": "Je suis une développeuse Full Stack passionnée avec trois ans d'expérience dans la création d'applications web et mobile modernes. Mon parcours m'a menée à architecturer et piloter des plateformes de gestion de services complètes — j'aime transformer des problèmes complexes en produits aboutis."
+      },
+      {
+        "question": "Dans quoi vous spécialisez-vous ?",
+        "answer": "Développement Full Stack — applications web et mobile de bout en bout. Solutions scalables — systèmes robustes qui évoluent avec vos besoins. Design centré utilisateur — expériences fluides et interfaces intuitives."
+      },
+      {
+        "question": "Quelles technologies utilisez-vous ?",
+        "answer": "Je travaille avec Next.js, React, React Native, Node.js et Supabase. J'implémente des écosystèmes API complets avec Express et Node.js, des couches de données PostgreSQL et des applications multi-plateformes — y compris des systèmes innovants comme le scan de codes-barres."
+      },
+      {
+        "question": "Comment abordez-vous les projets ?",
+        "answer": "J'architecture les solutions de A à Z : définition des APIs, backends scalables et interfaces soignées. Je me concentre sur des produits de qualité, centrés utilisateur, de la conception au déploiement."
+      },
+      {
+        "question": "Êtes-vous disponible ?",
+        "answer": "Oui — je suis ouverte aux nouveaux projets et collaborations. Avec plus de 3 ans d'expérience et 15+ projets livrés, contactez-moi via le dock Contact ou le menu pour démarrer une conversation."
+      }
+    ],
+    "statsYears": "Années",
+    "statsProjects": "Projets",
+    "statsSatisfaction": "Satisfaction"
+  },
+  "contact": {
+    "name": "Widad Amrani",
+    "role": "Développeuse Full Stack",
+    "availability": "Disponible pour de nouveaux projets",
+    "imageAlt": "Widad Amrani",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "location": "Localisation",
+    "locationValue": "Maroc",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "formName": "Votre nom",
+    "formEmail": "votre@email.com",
+    "formMessage": "Parlez-moi de votre projet...",
+    "formSubmit": "Envoyer le message",
+    "sectionTitle": "Contact",
+    "sectionSubtitle": "Ouverte aux nouveaux projets, collaborations et opportunités pour bâtir des produits utiles.",
+    "social": "Réseaux",
+    "formTitle": "Envoyer un message",
+    "formNameLabel": "Nom",
+    "formEmailLabel": "E-mail",
+    "formSubjectLabel": "Sujet",
+    "formMessageLabel": "Message",
+    "formSubjectPlaceholder": "De quoi s'agit-il ?"
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Réalisations sélectionnées — apps full-stack, plateformes automobile et produits mobile que j'ai livrés.",
+    "projectLabel": "Projet {num}",
+    "openProject": "Voir le projet",
+    "cta": "Construisons quelque chose ensemble",
+    "previewDashboard": "Tableau de bord",
+    "previewScan": "Scan",
+    "previewAltDashboard": "{title} - tableau de bord",
+    "previewAltScan": "{title} - scan",
+    "items": {
+      "prestafreedom-backoffice": {
+        "title": "PrestaFreedom Backoffice",
+        "description": "Système back-office complet pour la gestion de services : dashboard admin, analytics, workflows automatisés et contrôle d'accès par rôles."
+      },
+      "prestafreedom-client": {
+        "title": "PrestaFreedom — App client",
+        "description": "Application web client pour PrestaFreedom : suivi en temps réel, système de devis et paiements sécurisés via PayXpert."
+      },
+      "maroc-fer": {
+        "title": "Maroc Fer",
+        "description": "Site vitrine moderne pour Maroc Fer : présentation des services et opérations ferroviaires, design épuré et navigation intuitive."
+      },
+      "kgm-mobility": {
+        "title": "KGM Mobility Morocco",
+        "description": "Site automobile élégant pour KGM Mobility Morocco : gamme de véhicules, design moderne et fiches produits détaillées."
+      },
+      "exeed-maroc": {
+        "title": "EXEED Maroc",
+        "description": "Site officiel EXEED Maroc : exploration immersive des modèles premium (VX, RX, ES, ET) et technologie REEV."
+      },
+      "jac-motors": {
+        "title": "JAC Motors Morocco",
+        "description": "Site dynamique pour JAC Motors Morocco : contenu vidéo, exploration des modèles et informations concessionnaires."
+      },
+      "jumideal": {
+        "title": "JumiDeal — App gestion vendeurs",
+        "description": "Application mobile pour vendeurs Jumia : listing produits, calcul des prix, scan codes-barres et dashboards par rôle."
+      },
+      "prestafreedom-mobile": {
+        "title": "PrestaFreedom — App mobile",
+        "description": "Application mobile riche pour clients PrestaFreedom (Expo Router) : calendriers, sélecteurs de dates et éléments interactifs."
+      }
+    }
+  },
+  "tools": {
+    "title": "Ma boîte à outils",
+    "subtitle": "Technologies que j'utilise au quotidien",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "devops": "DevOps",
+      "databases": "Bases de données",
+      "more": "Autre"
+    },
+    "alsoTitle": "Également à l'aise avec",
+    "also": ["Design responsive", "Performance", "Sécurité", "Tests", "Microservices", "Cloud"]
+  },
+  "trash": {
+    "bornTo": "born to:",
+    "forcedTo": "forced to:",
+    "closeHint": "ferme cet onglet 😅",
+    "memeBornAlt": "Born to {n}",
+    "memeForcedAlt": "Forced to {n}"
+  },
+  "weather": {
+    "city": "Casablanca"
+  },
+  "lang": {
+    "groupLabel": "Langue",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "theme": {
+    "toggle": "Changer le thème",
+    "switchToLight": "Passer en mode clair",
+    "switchToDark": "Passer en mode sombre",
+    "lightMode": "Mode clair",
+    "darkMode": "Mode sombre"
+  },
+  "a11y": {
+    "toggleMenu": "Ouvrir le menu",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "E-mail"
+  },
   "footer": {
+    "copyright": "© {year} Widad Amrani — Développeuse Full Stack",
     "cta": "Contactez-moi"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subtitle": "Qui je suis et comment je construis des produits.",
+    "paragraphs": [
+      "Je suis une développeuse Full Stack passionnée avec trois ans d'expérience dans la création d'applications web et mobile modernes. Je me spécialise dans des solutions robustes et scalables avec Next.js, React, Node.js, React Native et Supabase.",
+      "Mon parcours m'a menée à architecturer et piloter des plateformes de gestion de services complètes. J'ai une solide expérience dans les écosystèmes API et les applications multi-plateformes innovantes, comme les systèmes de scan de codes-barres.",
+      "Je suis motivée par la résolution de problèmes complexes et la livraison de produits de qualité, centrés utilisateur."
+    ],
+    "highlights": {
+      "fullStack": {
+        "title": "Développement Full Stack",
+        "description": "Applications web et mobile complètes, du frontend au backend"
+      },
+      "scalable": {
+        "title": "Solutions scalables",
+        "description": "Systèmes robustes qui évoluent avec vos besoins"
+      },
+      "ux": {
+        "title": "Design centré utilisateur",
+        "description": "Expériences exceptionnelles et interfaces intuitives"
+      }
+    },
+    "statsYears": "Années",
+    "statsProjects": "Projets",
+    "statsSatisfaction": "Satisfaction"
+  },
+  "skills": {
+    "title": "Mon stack",
+    "subtitle": "Technologies que j'utilise pour livrer des produits prêts pour la production.",
+    "done": "Done",
+    "additionalTitle": "Expertise complémentaire",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "apisCloud": "APIs & Cloud",
+      "devops": "DevOps",
+      "databases": "Bases de données"
+    }
   }
-} 
+}

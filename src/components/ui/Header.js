@@ -3,15 +3,21 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import ThemeToggle from './ThemeToggle';
+import { useTranslation } from '@/contexts/LanguageContext';
+import { getCvPath, getCvFilename } from '@/data/cv';
 
 const navLinks = [
-  { name: 'Work', popup: 'projects' },
-  { name: 'About', popup: 'faq' },
+  { labelKey: 'nav.work', popup: 'projects' },
+  { labelKey: 'nav.about', popup: 'faq' },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const { lang, t } = useTranslation();
+  const cvHref = getCvPath(lang);
+  const cvFilename = getCvFilename(lang);
+  const cvLabel = t('cv.folderLabel');
 
   useEffect(() => {
     const sectionIds = ['hero'];
@@ -53,7 +59,7 @@ export default function Header() {
             {navLinks.map((link, index) =>
               link.popup ? (
                 <motion.button
-                  key={link.name}
+                  key={link.labelKey}
                   type="button"
                   onClick={() => window.dispatchEvent(new CustomEvent('dock-popup-open', { detail: link.popup }))}
                   className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-600 dark:text-gray-300 hover:text-[#86198f]"
@@ -61,11 +67,11 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
                 >
-                  {link.name}
+                  {t(link.labelKey)}
                 </motion.button>
               ) : (
                 <motion.a
-                  key={link.name}
+                  key={link.labelKey}
                   href={link.href}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     isActive(link.href)
@@ -76,7 +82,7 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
                 >
-                  {link.name}
+                  {t(link.labelKey)}
                 </motion.a>
               )
             )}
@@ -85,8 +91,8 @@ export default function Header() {
           <ThemeToggle />
 
           <motion.a
-            href="/assets/widadamrani.pdf"
-            download
+            href={cvHref}
+            download={cvFilename}
             className="px-5 py-2 bg-[#86198f] text-white text-sm rounded-full font-medium hover:bg-[#701a7a] transition-all duration-300 shadow-md"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -94,7 +100,7 @@ export default function Header() {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
-            resume.pdf
+            {cvLabel}
           </motion.a>
         </div>
 
@@ -103,7 +109,7 @@ export default function Header() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5"
-            aria-label="Toggle menu"
+            aria-label={t('a11y.toggleMenu')}
           >
             {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
           </button>
@@ -121,7 +127,7 @@ export default function Header() {
             {navLinks.map((link) =>
               link.popup ? (
                 <button
-                  key={link.name}
+                  key={link.labelKey}
                   type="button"
                   className="block w-full text-left px-4 py-3 rounded-xl font-medium text-gray-700 dark:text-gray-300 hover:bg-[#86198f]/5 hover:text-[#86198f] transition-colors"
                   onClick={() => {
@@ -129,26 +135,26 @@ export default function Header() {
                     window.dispatchEvent(new CustomEvent('dock-popup-open', { detail: link.popup }));
                   }}
                 >
-                  {link.name}
+                  {t(link.labelKey)}
                 </button>
               ) : (
                 <a
-                  key={link.name}
+                  key={link.labelKey}
                   href={link.href}
                   className="block px-4 py-3 rounded-xl font-medium text-gray-700 dark:text-gray-300 hover:bg-[#86198f]/5 hover:text-[#86198f] transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  {link.name}
+                  {t(link.labelKey)}
                 </a>
               )
             )}
             <a
-              href="/assets/widadamrani.pdf"
-              download
+              href={cvHref}
+              download={cvFilename}
               className="block mt-2 px-4 py-3 bg-[#86198f] text-white text-center rounded-xl font-medium"
               onClick={() => setIsOpen(false)}
             >
-              resume.pdf
+              {cvLabel}
             </a>
           </div>
         </motion.div>

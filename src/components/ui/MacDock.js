@@ -8,6 +8,7 @@ import TrashDockPopup from '@/components/dock/TrashDockPopup';
 import ProjectsDockPopup from '@/components/dock/ProjectsDockPopup';
 import FaqDockPopup from '@/components/dock/FaqDockPopup';
 import { ToolsIcon, ContactsIcon } from '@/components/ui/DockIcons';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 /** Compensate PNGs whose artwork does not fill a square canvas (object-contain shrink). */
 const IMAGE_VISUAL_SCALE = {
@@ -52,14 +53,14 @@ function useDockMetrics() {
 }
 
 const dockItems = [
-  { id: 'work', label: 'Work', image: '/images/dock/finder.png', action: 'popup', popup: 'projects' },
-  { id: 'tools', label: 'Tools', custom: 'tools', action: 'popup', popup: 'tools' },
-  { id: 'faq', label: 'FAQ', image: '/images/dock/messages.png', action: 'popup', popup: 'faq' },
-  { id: 'community', label: 'Community', image: '/images/dock/photos.png', action: 'popup', popup: 'projects' },
-  { id: 'contact', label: 'Contact', custom: 'contact', action: 'popup', popup: 'contact' },
-  { id: 'github', label: 'GitHub', image: '/images/dock/Github.png', action: 'external', href: 'https://github.com/widad-am' },
-  { id: 'music', label: 'Music', image: '/images/dock/spotify.png', action: 'none' },
-  { id: 'trash', label: "Don't look", image: '/images/dock/trash.png', action: 'popup', popup: 'trash', isTrash: true },
+  { id: 'work', labelKey: 'dock.work', image: '/images/dock/finder.png', action: 'popup', popup: 'projects' },
+  { id: 'tools', labelKey: 'dock.tools', custom: 'tools', action: 'popup', popup: 'tools' },
+  { id: 'faq', labelKey: 'dock.faq', image: '/images/dock/messages.png', action: 'popup', popup: 'faq' },
+  { id: 'community', labelKey: 'dock.community', image: '/images/dock/photos.png', action: 'popup', popup: 'projects' },
+  { id: 'contact', labelKey: 'dock.contact', custom: 'contact', action: 'popup', popup: 'contact' },
+  { id: 'github', labelKey: 'dock.github', image: '/images/dock/Github.png', action: 'external', href: 'https://github.com/widad-am' },
+  { id: 'music', labelKey: 'dock.music', image: '/images/dock/spotify.png', action: 'none' },
+  { id: 'trash', labelKey: 'dock.trash', image: '/images/dock/trash.png', action: 'popup', popup: 'trash', isTrash: true },
 ];
 
 const mainCount = dockItems.filter((i) => !i.isTrash).length;
@@ -106,7 +107,7 @@ function DockIconArt({ children, visualScale = 1 }) {
   );
 }
 
-function DockIconContent({ item, maxPx }) {
+function DockIconContent({ item, maxPx, label }) {
   if (item.custom === 'tools') {
     return (
       <DockIconArt>
@@ -128,7 +129,7 @@ function DockIconContent({ item, maxPx }) {
         <div className="relative w-full h-full">
           <Image
             src={item.image}
-            alt={item.label}
+            alt={label}
             fill
             className="object-contain object-center drop-shadow-md"
             sizes={`${maxPx}px`}
@@ -144,6 +145,7 @@ function DockIconContent({ item, maxPx }) {
 }
 
 export default function MacDock() {
+  const { t } = useTranslation();
   const dockRef = useRef(null);
   const metrics = useDockMetrics();
   const { baseSize, maxScale, magnifyRange, enableMagnify } = metrics;
@@ -201,6 +203,7 @@ export default function MacDock() {
     const lift = enableMagnify ? (scale - 1) * (baseSize * 0.5) : 0;
     const isHovered = hoveredIndex === index;
     const isExternal = item.action === 'external';
+    const label = t(item.labelKey);
 
     const inner = (
       <div
@@ -212,8 +215,8 @@ export default function MacDock() {
           transform: enableMagnify ? `translateY(${-lift}px) scale(${scale})` : undefined,
         }}
       >
-        {isHovered && enableMagnify && <DockTooltip label={item.label} />}
-        <DockIconContent item={item} maxPx={dockIconMaxPx} />
+        {isHovered && enableMagnify && <DockTooltip label={label} />}
+        <DockIconContent item={item} maxPx={dockIconMaxPx} label={label} />
       </div>
     );
 
@@ -226,6 +229,7 @@ export default function MacDock() {
           rel="noopener noreferrer"
           className="mac-dock-link-v2"
           onClick={(e) => handleItemClick(item, e)}
+          aria-label={label}
         >
           {inner}
         </a>
@@ -238,7 +242,7 @@ export default function MacDock() {
         type="button"
         className="mac-dock-link-v2"
         onClick={(e) => handleItemClick(item, e)}
-        aria-label={item.label}
+        aria-label={label}
       >
         {inner}
       </button>
@@ -266,7 +270,7 @@ export default function MacDock() {
       <MacWindowModal
         open={activePopup === 'contact'}
         onClose={() => setActivePopup(null)}
-        title="Contact — Widad Amrani"
+        title={t('modal.contactTitle')}
         size="md"
       >
         <ContactDockPopup />
@@ -275,7 +279,7 @@ export default function MacDock() {
       <MacWindowModal
         open={activePopup === 'tools'}
         onClose={() => setActivePopup(null)}
-        title="Tools — My Stack"
+        title={t('modal.toolsTitle')}
         size="lg"
       >
         <ToolsDockPopup />
@@ -284,7 +288,7 @@ export default function MacDock() {
       <MacWindowModal
         open={activePopup === 'trash'}
         onClose={() => setActivePopup(null)}
-        title="Don't look"
+        title={t('modal.trashTitle')}
         size="md"
       >
         <TrashDockPopup />
@@ -293,7 +297,7 @@ export default function MacDock() {
       <MacWindowModal
         open={activePopup === 'projects'}
         onClose={() => setActivePopup(null)}
-        title="Work — Projects"
+        title={t('modal.projectsTitle')}
         size="2xl"
       >
         <ProjectsDockPopup />
@@ -302,7 +306,7 @@ export default function MacDock() {
       <MacWindowModal
         open={activePopup === 'faq'}
         onClose={() => setActivePopup(null)}
-        title="FAQ — About Me"
+        title={t('modal.faqTitle')}
         size="md"
       >
         <FaqDockPopup />

@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { FiSearch, FiSliders } from 'react-icons/fi';
 import { HiWifi } from 'react-icons/hi2';
 import ThemeToggle from './ThemeToggle';
+import LanguageToggle from './LanguageToggle';
+import { useTranslation, localeForLang } from '@/contexts/LanguageContext';
+import { getCvPath, getCvFilename } from '@/data/cv';
 
 function AppleLogo({ className }) {
   return (
@@ -15,19 +18,23 @@ function AppleLogo({ className }) {
 
 export default function MacMenuBar() {
   const [time, setTime] = useState('');
+  const { lang, t, mounted: langMounted } = useTranslation();
+  const cvHref = getCvPath(lang);
+  const cvDownload = getCvFilename(lang);
 
   useEffect(() => {
+    const locale = localeForLang(lang);
     const update = () => {
-      setTime(new Date().toLocaleTimeString('en-US', {
+      setTime(new Date().toLocaleTimeString(locale, {
         hour: 'numeric',
         minute: '2-digit',
-        hour12: true,
+        hour12: lang === 'en',
       }));
     };
     update();
     const id = setInterval(update, 30000);
     return () => clearInterval(id);
-  }, []);
+  }, [lang]);
 
   return (
     <header className="mac-menubar fixed top-0 left-0 right-0 z-50">
@@ -35,20 +42,27 @@ export default function MacMenuBar() {
         <div className="flex items-center gap-2.5 xs:gap-4 sm:gap-5 min-w-0">
           <AppleLogo className="w-3.5 h-3.5 shrink-0" />
           <a href="#hero" className="font-semibold truncate text-[11px] xs:text-xs sm:text-[13px] max-w-[120px] xs:max-w-none sm:max-w-none hover:opacity-70 transition-opacity">
-            <span className="sm:hidden">Widad</span>
-            <span className="hidden sm:inline">Widad&apos;s Portfolio</span>
+            <span className="sm:hidden font-hand text-base xs:text-lg leading-none">{t('menubar.brandMobile')}</span>
+            <span className="hidden sm:inline">{t('menubar.brandDesktop')}</span>
           </a>
           <button
             type="button"
             className="hidden md:block hover:opacity-70 transition-opacity"
             onClick={() => window.dispatchEvent(new CustomEvent('dock-popup-open', { detail: 'contact' }))}
           >
-            Contact
+            {t('menubar.contact')}
           </button>
-          <a href="/assets/widadamrani.pdf" download className="hidden md:block hover:opacity-70 transition-opacity">Resume</a>
+          <a
+            href={langMounted ? cvHref : '/assets/Widad_Amrani_CV_EN.pdf'}
+            download={langMounted ? cvDownload : 'Widad_Amrani_CV_EN.pdf'}
+            className="hidden md:block hover:opacity-70 transition-opacity"
+          >
+            {t('cv.menuLabel')}
+          </a>
         </div>
 
-        <div className="flex items-center gap-2.5 sm:gap-3 mac-menubar-text-muted">
+        <div className="flex items-center gap-2 sm:gap-2.5 mac-menubar-text-muted">
+          <LanguageToggle />
           <ThemeToggle />
           <HiWifi className="w-4 h-4 hidden sm:block" />
           <FiSearch className="w-3.5 h-3.5 hidden sm:block" />
@@ -56,12 +70,12 @@ export default function MacMenuBar() {
           <div className="relative w-5 h-5 rounded-full overflow-hidden ring-1 ring-black/10 dark:ring-white/20 hidden sm:block">
             <Image
               src="/images/WhatsApp Image 2024-07-26 at 17.18.31.jpeg"
-              alt="Widad"
+              alt={t('menubar.profileAlt')}
               fill
               className="object-cover"
             />
           </div>
-          <span className="font-medium tabular-nums text-xs sm:text-[13px] mac-menubar-text">{time}</span>
+          <span className="hidden sm:inline font-medium tabular-nums text-xs sm:text-[13px] mac-menubar-text">{time}</span>
         </div>
       </div>
     </header>

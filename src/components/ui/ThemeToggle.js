@@ -2,14 +2,16 @@
 import { motion } from 'framer-motion';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { useTheme } from '@/contexts/ThemeContext';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function ThemeToggle({ variant = 'menubar' }) {
   const { theme, toggleTheme, mounted } = useTheme();
+  const { t } = useTranslation();
   const isDark = theme === 'dark';
 
   if (!mounted) {
     return (
-      <button type="button" className="mac-theme-btn" aria-label="Toggle theme" disabled>
+      <button type="button" className="mac-theme-btn" aria-label={t('theme.toggle')} disabled>
         <FiMoon className="w-3.5 h-3.5 opacity-50" />
       </button>
     );
@@ -22,7 +24,7 @@ export default function ThemeToggle({ variant = 'menubar' }) {
         onClick={toggleTheme}
         className="relative w-12 h-6 rounded-full p-0.5 bg-gray-200 dark:bg-gray-700 transition-colors"
         whileTap={{ scale: 0.95 }}
-        aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+        aria-label={isDark ? t('theme.switchToLight') : t('theme.switchToDark')}
       >
         <motion.div
           className="w-5 h-5 rounded-full bg-white dark:bg-gray-900 shadow flex items-center justify-center"
@@ -46,7 +48,7 @@ export default function ThemeToggle({ variant = 'menubar' }) {
       className="mac-theme-btn group"
       whileTap={{ scale: 0.88 }}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-      title={isDark ? 'Light mode' : 'Dark mode'}
+      title={isDark ? t('theme.lightMode') : t('theme.darkMode')}
     >
       <motion.span
         key={theme}

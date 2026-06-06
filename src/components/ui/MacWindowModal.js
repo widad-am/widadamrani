@@ -2,8 +2,10 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function MacWindowModal({ open, onClose, title, children, size = 'md' }) {
+  const { t } = useTranslation();
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => e.key === 'Escape' && onClose();
@@ -48,7 +50,7 @@ export default function MacWindowModal({ open, onClose, title, children, size = 
                   type="button"
                   onClick={onClose}
                   className="w-3 h-3 rounded-full bg-[#ff5f57] hover:brightness-90 transition-all"
-                  aria-label="Close"
+                  aria-label={t('modal.close')}
                 />
                 <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
                 <span className="w-3 h-3 rounded-full bg-[#28c840]" />
@@ -60,7 +62,7 @@ export default function MacWindowModal({ open, onClose, title, children, size = 
                 type="button"
                 onClick={onClose}
                 className="absolute right-3 top-3 p-1 rounded-md text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-                aria-label="Close window"
+                aria-label={t('modal.closeWindow')}
               >
                 <FiX className="w-4 h-4" />
               </button>

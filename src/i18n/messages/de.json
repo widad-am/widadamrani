@@ -1,11 +1,258 @@
 {
+  "meta": {
+    "title": "Widad Amrani | Full Stack Entwicklerin",
+    "description": "Portfolio von Widad Amrani, Full Stack Entwicklerin mit Schwerpunkt auf Next.js, React, Node.js und Supabase."
+  },
+  "notFound": {
+    "title": "404 - Seite nicht gefunden",
+    "description": "Entschuldigung, die gesuchte Seite existiert nicht.",
+    "cta": "Zur Startseite"
+  },
   "hero": {
-    "title": "Full Stack Entwicklerin"
+    "expertiseTitle": "< Meine Expertise:",
+    "done": "Done",
+    "expertise": [
+      "Full Stack Entwicklung",
+      "React & Next.js Anwendungen",
+      "Node.js Backend & APIs",
+      "Mobile Apps mit React Native",
+      "Supabase & PostgreSQL"
+    ],
+    "messagesApp": "NACHRICHTEN",
+    "messagesNow": "jetzt",
+    "messagesBody": "Lust auf Zusammenarbeit? Schreib mir eine Nachricht und lass uns etwas Cooles bauen.",
+    "connect": "Kontakt",
+    "folderAbout": "Über mich",
+    "folderProjects": [
+      "Projekt 01: PrestaFreedom",
+      "Projekt 02: EXEED Maroc",
+      "Projekt 03: JumiDeal App",
+      "Projekt 04: KGM Mobility"
+    ],
+    "greeting": "Hey, ich bin Widad",
+    "imageAlt": "Widad Amrani",
+    "bio": "Full Stack Entwicklerin, die skalierbare Web- & Mobile-Produkte liefert — von APIs bis zu polierten UIs.",
+    "shipCode": "Ship Code",
+    "role": "Full Stack Entwicklerin"
+  },
+  "menubar": {
+    "brandMobile": "<div>a",
+    "brandDesktop": "Widads Portfolio",
+    "contact": "Kontakt",
+    "profileAlt": "Widad"
+  },
+  "cv": {
+    "menuLabel": "Lebenslauf",
+    "folderLabel": "lebenslauf.pdf"
   },
   "nav": {
+    "work": "Projekte",
+    "about": "Über mich",
     "projects": "Projekte"
   },
+  "dock": {
+    "work": "Arbeit",
+    "tools": "Tools",
+    "faq": "FAQ",
+    "community": "Community",
+    "contact": "Kontakt",
+    "github": "GitHub",
+    "music": "Musik",
+    "trash": "Nicht hinsehen"
+  },
+  "modal": {
+    "close": "Schließen",
+    "closeWindow": "Fenster schließen",
+    "contactTitle": "Kontakt — Widad Amrani",
+    "toolsTitle": "Tools — Mein Stack",
+    "trashTitle": "Nicht hinsehen",
+    "projectsTitle": "Arbeit — Projekte",
+    "faqTitle": "FAQ — Über mich"
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Wer ich bin und wie ich Produkte entwickle.",
+    "items": [
+      {
+        "question": "Wer bist du?",
+        "answer": "Ich bin eine leidenschaftliche Full Stack Entwicklerin mit drei Jahren Erfahrung im Aufbau moderner Web- und Mobile-Anwendungen. Ich habe umfassende Service-Management-Plattformen von Grund auf architectiert und geleitet — komplexe Probleme in fertige Produkte zu verwandeln, macht mir Spaß."
+      },
+      {
+        "question": "Worauf spezialisierst du dich?",
+        "answer": "Full Stack Entwicklung — komplette Web- und Mobile-Apps. Skalierbare Lösungen — robuste Systeme, die mit Ihrem Unternehmen wachsen. Nutzerzentriertes Design — außergewöhnliche UX und intuitive Oberflächen."
+      },
+      {
+        "question": "Welche Technologien nutzt du?",
+        "answer": "Ich arbeite mit Next.js, React, React Native, Node.js und Supabase. Ich implementiere komplette API-Ökosysteme mit Express und Node.js, PostgreSQL-Datenlayer und Multi-Plattform-Apps — einschließlich innovativer Barcode-Scanning-Workflows."
+      },
+      {
+        "question": "Wie gehst du an Projekte heran?",
+        "answer": "Ich architectiere Lösungen von Grund auf: APIs definieren, skalierbare Backends gestalten und polierte UIs liefern. Fokus auf hochwertige, nutzerzentrierte Produkte — von der Idee bis zum Deployment."
+      },
+      {
+        "question": "Bist du verfügbar?",
+        "answer": "Ja — ich bin offen für neue Projekte und Zusammenarbeit. Mit 3+ Jahren Erfahrung und 15+ gelieferten Projekten: Kontaktieren Sie mich über das Dock oder das Menü."
+      }
+    ],
+    "statsYears": "Jahre",
+    "statsProjects": "Projekte",
+    "statsSatisfaction": "Zufriedenheit"
+  },
+  "contact": {
+    "name": "Widad Amrani",
+    "role": "Full Stack Entwicklerin",
+    "availability": "Verfügbar für neue Projekte",
+    "imageAlt": "Widad Amrani",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "location": "Standort",
+    "locationValue": "Marokko",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "formName": "Ihr Name",
+    "formEmail": "ihre@email.com",
+    "formMessage": "Erzählen Sie mir von Ihrem Projekt...",
+    "formSubmit": "Nachricht senden",
+    "sectionTitle": "Kontakt",
+    "sectionSubtitle": "Offen für neue Projekte, Kooperationen und sinnvolle Produkte.",
+    "social": "Social",
+    "formTitle": "Nachricht senden",
+    "formNameLabel": "Name",
+    "formEmailLabel": "E-Mail",
+    "formSubjectLabel": "Betreff",
+    "formMessageLabel": "Nachricht",
+    "formSubjectPlaceholder": "Worum geht es?"
+  },
+  "projects": {
+    "title": "Projekte",
+    "subtitle": "Ausgewählte Arbeiten — Full-Stack-Web-Apps, Automotive-Plattformen und Mobile-Produkte.",
+    "projectLabel": "Projekt {num}",
+    "openProject": "Projekt öffnen",
+    "cta": "Lass uns etwas zusammen bauen",
+    "previewDashboard": "Dashboard",
+    "previewScan": "Scan",
+    "previewAltDashboard": "{title} - Dashboard",
+    "previewAltScan": "{title} - Scan",
+    "items": {
+      "prestafreedom-backoffice": {
+        "title": "PrestaFreedom Backoffice",
+        "description": "Umfassendes Back-Office für Service-Management: Admin-Dashboard, Analytics, automatisierte Workflows und rollenbasierte Zugriffskontrolle."
+      },
+      "prestafreedom-client": {
+        "title": "PrestaFreedom Client App",
+        "description": "Client-Webanwendung für PrestaFreedom: Echtzeit-Tracking, Angebotssystem und sichere Zahlungen mit PayXpert."
+      },
+      "maroc-fer": {
+        "title": "Maroc Fer",
+        "description": "Moderne Website für Maroc Fer: Präsentation der Eisenbahndienste und -betriebe mit klarem Design und intuitiver Navigation."
+      },
+      "kgm-mobility": {
+        "title": "KGM Mobility Morocco",
+        "description": "Elegante Automotive-Website für KGM Mobility Morocco: Fahrzeuglinie, modernes Design und detaillierte Fahrzeuginformationen."
+      },
+      "exeed-maroc": {
+        "title": "EXEED Maroc",
+        "description": "Offizielle EXEED Maroc Website: immersive Erkundung der Premium-Modelle (VX, RX, ES, ET) und REEV-Technologie."
+      },
+      "jac-motors": {
+        "title": "JAC Motors Morocco",
+        "description": "Lebendige Website für JAC Motors Morocco: Video-Inhalte, Modellerkundung und Händlerinformationen."
+      },
+      "jumideal": {
+        "title": "JumiDeal: Smart Vendor Management App",
+        "description": "Mobile App für Jumia-Händler: Produktlisting, Preisberechnung, Barcode-Scanning und rollenbasierte Dashboards."
+      },
+      "prestafreedom-mobile": {
+        "title": "PrestaFreedom Mobile App",
+        "description": "Funktionsreiche Mobile App für PrestaFreedom-Kunden mit Expo Router: Kalender, Datumsauswahl und interaktive Elemente."
+      }
+    }
+  },
+  "tools": {
+    "title": "Mein Toolkit",
+    "subtitle": "Technologien, mit denen ich täglich arbeite",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "devops": "DevOps",
+      "databases": "Datenbanken",
+      "more": "Mehr"
+    },
+    "alsoTitle": "Ebenfalls vertraut mit",
+    "also": ["Responsive Design", "Performance", "Sicherheit", "Testing", "Microservices", "Cloud"]
+  },
+  "trash": {
+    "bornTo": "born to:",
+    "forcedTo": "forced to:",
+    "closeHint": "schließ diesen Tab 😅",
+    "memeBornAlt": "Born to {n}",
+    "memeForcedAlt": "Forced to {n}"
+  },
+  "weather": {
+    "city": "Casablanca"
+  },
+  "lang": {
+    "groupLabel": "Sprache",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "theme": {
+    "toggle": "Theme wechseln",
+    "switchToLight": "Zum hellen Modus wechseln",
+    "switchToDark": "Zum dunklen Modus wechseln",
+    "lightMode": "Heller Modus",
+    "darkMode": "Dunkler Modus"
+  },
+  "a11y": {
+    "toggleMenu": "Menü umschalten",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "E-Mail"
+  },
   "footer": {
+    "copyright": "© {year} Widad Amrani — Full Stack Entwicklerin",
     "cta": "Kontaktieren Sie mich"
+  },
+  "about": {
+    "title": "Über mich",
+    "subtitle": "Wer ich bin und wie ich Produkte entwickle.",
+    "paragraphs": [
+      "Ich bin eine leidenschaftliche Full Stack Entwicklerin mit drei Jahren Erfahrung im Aufbau moderner Web- und Mobile-Anwendungen. Ich spezialisiere mich auf robuste, skalierbare Lösungen mit Next.js, React, Node.js, React Native und Supabase.",
+      "Mein Weg führte mich dazu, umfassende Service-Management-Plattformen von Grund auf zu architectieren und zu leiten. Ich habe Erfahrung mit kompletten API-Ökosystemen und innovativen Multi-Plattform-Apps wie Barcode-Scanning-Systemen.",
+      "Ich bin motiviert, komplexe Probleme zu lösen und hochwertige, nutzerzentrierte Produkte zu liefern."
+    ],
+    "highlights": {
+      "fullStack": {
+        "title": "Full Stack Entwicklung",
+        "description": "Komplette Web- und Mobile-Anwendungen von Frontend bis Backend"
+      },
+      "scalable": {
+        "title": "Skalierbare Lösungen",
+        "description": "Robuste Systeme, die mit Ihrem Unternehmen wachsen"
+      },
+      "ux": {
+        "title": "Nutzerzentriertes Design",
+        "description": "Außergewöhnliche UX und intuitive Oberflächen"
+      }
+    },
+    "statsYears": "Jahre",
+    "statsProjects": "Projekte",
+    "statsSatisfaction": "Zufriedenheit"
+  },
+  "skills": {
+    "title": "Mein Stack",
+    "subtitle": "Technologien für produktionsreife Produkte.",
+    "done": "Done",
+    "additionalTitle": "Weitere Expertise",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "apisCloud": "APIs & Cloud",
+      "devops": "DevOps",
+      "databases": "Datenbanken"
+    }
   }
-} 
+}

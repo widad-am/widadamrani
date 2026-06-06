@@ -1,7 +1,11 @@
 "use client";
 import Image from 'next/image';
+import { useTranslation } from '@/contexts/LanguageContext';
 
-export default function ProjectPreview({ project }) {
+export default function ProjectPreview({ project, title }) {
+  const { t } = useTranslation();
+  const displayTitle = title ?? project.id;
+
   if (!project.image) {
     return (
       <div className="h-44 sm:h-48 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
@@ -12,8 +16,16 @@ export default function ProjectPreview({ project }) {
 
   if (project.secondaryImage) {
     const screens = [
-      { src: project.image, alt: `${project.title} - dashboard`, label: 'Dashboard' },
-      { src: project.secondaryImage, alt: `${project.title} - scan`, label: 'Scan' },
+      {
+        src: project.image,
+        alt: t('projects.previewAltDashboard', { title: displayTitle }),
+        label: t('projects.previewDashboard'),
+      },
+      {
+        src: project.secondaryImage,
+        alt: t('projects.previewAltScan', { title: displayTitle }),
+        label: t('projects.previewScan'),
+      },
     ];
 
     return (
@@ -45,7 +57,7 @@ export default function ProjectPreview({ project }) {
     <div className="relative h-44 sm:h-48 overflow-hidden bg-gray-100 dark:bg-gray-800 group/img">
       <Image
         src={project.image}
-        alt={project.title}
+        alt={displayTitle}
         fill
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover object-center group-hover/img:scale-105 transition-transform duration-500"

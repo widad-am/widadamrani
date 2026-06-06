@@ -2,15 +2,19 @@
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import MacWidget from '@/components/ui/MacWidget';
-import { projects } from '@/data/projects';
+import { projects, getProjectCopy } from '@/data/projects';
 import ProjectPreview from '@/components/projects/ProjectPreview';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function ProjectCards({ showCta = true, animateOnView = true }) {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((project, index) => {
           const num = String(index + 1).padStart(2, '0');
+          const { title, description } = getProjectCopy(t, project);
           const visibleTechs = project.technologies.slice(0, 3);
           const extraTechCount = project.technologies.length - visibleTechs.length;
 
@@ -29,22 +33,22 @@ export default function ProjectCards({ showCta = true, animateOnView = true }) {
 
           return (
             <motion.div
-              key={project.title}
+              key={project.id}
               className={`group h-full ${project.secondaryImage ? 'sm:col-span-2' : ''}`}
               {...motionProps}
             >
               <MacWidget padding={false} className="overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
-                <ProjectPreview project={project} />
+                <ProjectPreview project={project} title={title} />
 
                 <div className="flex flex-col flex-1 p-4 sm:p-5">
                   <p className="text-[10px] uppercase tracking-[0.15em] text-[#86198f] dark:text-[#c084fc] font-semibold mb-1.5">
-                    Project {num}
+                    {t('projects.projectLabel', { num })}
                   </p>
                   <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 mb-2 leading-snug line-clamp-2">
-                    {project.title}
+                    {title}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 mb-3 flex-1">
-                    {project.description}
+                    {description}
                   </p>
 
                   <div className="flex flex-wrap gap-1.5 mb-4">
@@ -69,7 +73,7 @@ export default function ProjectCards({ showCta = true, animateOnView = true }) {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Open Project
+                      {t('projects.openProject')}
                       <FiArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
                     </motion.a>
                   )}
@@ -93,7 +97,7 @@ export default function ProjectCards({ showCta = true, animateOnView = true }) {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#86198f]/30 dark:border-[#c084fc]/30 text-[#86198f] dark:text-[#c084fc] font-semibold hover:bg-[#86198f]/5 dark:hover:bg-[#c084fc]/10 transition-all duration-300"
             onClick={() => window.dispatchEvent(new CustomEvent('dock-popup-open', { detail: 'contact' }))}
           >
-            Let&apos;s build something together
+            {t('projects.cta')}
             <FiArrowRight className="w-4 h-4" />
           </button>
         </motion.div>

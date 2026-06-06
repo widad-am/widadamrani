@@ -49,7 +49,7 @@ export default function About() {
             <MacWidget className="p-6 sm:p-8" padding={false}>
               <div className="space-y-5 text-gray-700 dark:text-gray-300 leading-relaxed">
                 <p>
-                  I am a passionate and experienced <span className="font-semibold text-[#86198f] dark:text-[#c084fc]">Full Stack Developer</span> with three years of dedicated expertise in building modern web and mobile applications. My specialization lies in creating robust, scalable solutions using cutting-edge technologies like Next.js, React, React Native, and Supabase.
+                  I am a passionate and experienced <span className="font-semibold text-[#86198f] dark:text-[#c084fc]">Full Stack Developer</span> with three years of dedicated expertise in building modern web and mobile applications. My specialization lies in creating robust, scalable solutions using cutting-edge technologies like Next.js, React, Node.js, React Native, and Supabase.
                 </p>
                 <p>
                   My journey has led me to architect and lead the development of comprehensive service management platforms from the ground up. I thrive in dynamic environments and have a proven track record of implementing complete API ecosystems and developing innovative multi-platform applications, such as barcode scanning systems.

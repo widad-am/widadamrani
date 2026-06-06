@@ -1,4 +1,4 @@
-export default function MacFolder({ label, href, download, popup, className = '' }) {
+export default function MacFolder({ label, href, download, downloadName, popup, className = '' }) {
   const content = (
     <>
       <div className="mac-folder-icon" aria-hidden="true">
@@ -24,7 +24,7 @@ export default function MacFolder({ label, href, download, popup, className = ''
   return (
     <a
       href={href}
-      {...(download ? { download: true } : {})}
+      {...(download ? { download: downloadName || true } : {})}
       className={`mac-folder group ${className}`}
     >
       {content}

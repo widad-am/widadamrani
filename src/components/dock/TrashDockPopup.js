@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 const bornTo = [
   '/images/dock/trash/born/1.png',
@@ -34,31 +35,33 @@ function MemeItem({ src, alt }) {
 }
 
 export default function TrashDockPopup() {
+  const { t } = useTranslation();
+
   return (
     <div className="px-4 sm:px-6 pb-6 pt-4 flex flex-col items-center">
       <div className="flex flex-col items-center gap-3 mb-8 w-full">
         <h2 className="text-xl sm:text-2xl font-black tracking-tight text-gray-900 dark:text-white">
-          born to:
+          {t('trash.bornTo')}
         </h2>
         <div className="meme-grid">
           {bornTo.map((src, i) => (
-            <MemeItem key={src} src={src} alt={`Born to ${i + 1}`} />
+            <MemeItem key={src} src={src} alt={t('trash.memeBornAlt', { n: i + 1 })} />
           ))}
         </div>
       </div>
 
       <div className="flex flex-col items-center gap-3 w-full mb-2">
         <h2 className="text-xl sm:text-2xl font-black tracking-tight text-gray-900 dark:text-white">
-          forced to:
+          {t('trash.forcedTo')}
         </h2>
         <div className="meme-grid items-center">
           {forcedTo.map((src, i) => (
-            <MemeItem key={src} src={src} alt={`Forced to ${i + 1}`} />
+            <MemeItem key={src} src={src} alt={t('trash.memeForcedAlt', { n: i + 1 })} />
           ))}
         </div>
       </div>
 
-      <p className="text-xs text-gray-400 dark:text-gray-500 mt-6 font-hand text-base">close this tab 😅</p>
+      <p className="text-xs text-gray-400 dark:text-gray-500 mt-6 font-hand text-base">{t('trash.closeHint')}</p>
     </div>
   );
 }

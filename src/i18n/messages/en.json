@@ -1,11 +1,258 @@
 {
+  "meta": {
+    "title": "Widad Amrani | Full Stack Developer",
+    "description": "Portfolio of Widad Amrani, a skilled Full Stack Developer specializing in Next.js, React, Node.js, and Supabase."
+  },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist.",
+    "cta": "Return to Home"
+  },
   "hero": {
-    "title": "Full Stack Developer"
+    "expertiseTitle": "< My Expertise:",
+    "done": "Done",
+    "expertise": [
+      "Full Stack Development",
+      "React & Next.js Applications",
+      "Node.js Backend & APIs",
+      "Mobile Apps with React Native",
+      "Supabase & PostgreSQL"
+    ],
+    "messagesApp": "MESSAGES",
+    "messagesNow": "now",
+    "messagesBody": "Excited to collaborate? Send a message and let's build something cool.",
+    "connect": "Connect",
+    "folderAbout": "About Me",
+    "folderProjects": [
+      "Project 01: PrestaFreedom",
+      "Project 02: EXEED Maroc",
+      "Project 03: JumiDeal App",
+      "Project 04: KGM Mobility"
+    ],
+    "greeting": "Hey, I'm Widad",
+    "imageAlt": "Widad Amrani",
+    "bio": "A Full Stack Developer who ships scalable web & mobile products — from APIs to polished UIs.",
+    "shipCode": "Ship Code",
+    "role": "Full Stack Developer"
+  },
+  "menubar": {
+    "brandMobile": "<div>a",
+    "brandDesktop": "Widad's Portfolio",
+    "contact": "Contact",
+    "profileAlt": "Widad"
+  },
+  "cv": {
+    "menuLabel": "Resume",
+    "folderLabel": "resume.pdf"
   },
   "nav": {
+    "work": "Work",
+    "about": "About",
     "projects": "Projects"
   },
+  "dock": {
+    "work": "Work",
+    "tools": "Tools",
+    "faq": "FAQ",
+    "community": "Community",
+    "contact": "Contact",
+    "github": "GitHub",
+    "music": "Music",
+    "trash": "Don't look"
+  },
+  "modal": {
+    "close": "Close",
+    "closeWindow": "Close window",
+    "contactTitle": "Contact — Widad Amrani",
+    "toolsTitle": "Tools — My Stack",
+    "trashTitle": "Don't look",
+    "projectsTitle": "Work — Projects",
+    "faqTitle": "FAQ — About Me"
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Who I am and how I build products.",
+    "items": [
+      {
+        "question": "Who are you?",
+        "answer": "I am a passionate Full Stack Developer with three years of dedicated expertise in building modern web and mobile applications. My journey has led me to architect and lead comprehensive service management platforms from the ground up — I thrive in dynamic environments and love turning complex problems into polished products."
+      },
+      {
+        "question": "What do you specialize in?",
+        "answer": "Full Stack Development — building complete web and mobile applications from frontend to backend. Scalable Solutions — creating robust systems that grow with your business needs. User-Centric Design — focusing on exceptional user experiences and intuitive interfaces."
+      },
+      {
+        "question": "What technologies do you use?",
+        "answer": "I specialize in Next.js, React, React Native, Node.js, and Supabase for end-to-end product development. I implement complete API ecosystems with Express and Node.js, PostgreSQL-backed data layers, and multi-platform applications — including innovative systems like barcode scanning workflows."
+      },
+      {
+        "question": "How do you approach projects?",
+        "answer": "I architect solutions from the ground up: defining APIs, designing scalable backends, and shipping polished UIs. I focus on solving complex problems with high-quality, user-centric products that exceed expectations — from initial concept through deployment and iteration."
+      },
+      {
+        "question": "Are you open to work?",
+        "answer": "Yes — I am available for new projects and collaborations. With 3+ years of experience and 15+ projects delivered, I am driven to help teams ship scalable web and mobile products. Reach out via the Contact dock item or menu to start a conversation."
+      }
+    ],
+    "statsYears": "Years",
+    "statsProjects": "Projects",
+    "statsSatisfaction": "Satisfaction"
+  },
+  "contact": {
+    "name": "Widad Amrani",
+    "role": "Full Stack Developer",
+    "availability": "Available for new projects",
+    "imageAlt": "Widad Amrani",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "locationValue": "Morocco",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "formName": "Your name",
+    "formEmail": "your@email.com",
+    "formMessage": "Tell me about your project...",
+    "formSubmit": "Send Message",
+    "sectionTitle": "Contact",
+    "sectionSubtitle": "Open to new projects, collaborations, and opportunities to build something meaningful.",
+    "social": "Social",
+    "formTitle": "Send a Message",
+    "formNameLabel": "Name",
+    "formEmailLabel": "Email",
+    "formSubjectLabel": "Subject",
+    "formMessageLabel": "Message",
+    "formSubjectPlaceholder": "What's this about?"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Selected builds — full-stack web apps, automotive platforms, and mobile products I've shipped.",
+    "projectLabel": "Project {num}",
+    "openProject": "Open Project",
+    "cta": "Let's build something together",
+    "previewDashboard": "Dashboard",
+    "previewScan": "Scan",
+    "previewAltDashboard": "{title} - dashboard",
+    "previewAltScan": "{title} - scan",
+    "items": {
+      "prestafreedom-backoffice": {
+        "title": "PrestaFreedom Backoffice",
+        "description": "A comprehensive back-office system for service management, featuring an admin dashboard, analytics, automated workflows, and role-based access control."
+      },
+      "prestafreedom-client": {
+        "title": "PrestaFreedom Client App",
+        "description": "The main client-facing web application for the PrestaFreedom service. It includes features like real-time tracking, a quoting system, and secure payment processing with PayXpert."
+      },
+      "maroc-fer": {
+        "title": "Maroc Fer",
+        "description": "A modern and professional website for Maroc Fer, showcasing their railway services and operations with a clean design and intuitive navigation."
+      },
+      "kgm-mobility": {
+        "title": "KGM Mobility Morocco",
+        "description": "An elegant automotive website for KGM Mobility Morocco, featuring their vehicle lineup with modern design and comprehensive vehicle information."
+      },
+      "exeed-maroc": {
+        "title": "EXEED Maroc",
+        "description": "The official EXEED Maroc website showcasing premium vehicle models including VX, RX, ES, and ET with immersive model exploration and REEV technology highlights."
+      },
+      "jac-motors": {
+        "title": "JAC Motors Morocco",
+        "description": "A vibrant automotive website for JAC Motors Morocco with engaging video content, model exploration, and dealership information."
+      },
+      "jumideal": {
+        "title": "JumiDeal: Smart Vendor Management App",
+        "description": "A powerful mobile application for Jumia vendors that streamlines product listing, price calculation, and business management with barcode scanning and role-based dashboards."
+      },
+      "prestafreedom-mobile": {
+        "title": "PrestaFreedom Mobile App",
+        "description": "A feature-rich mobile app for PrestaFreedom clients, built with Expo Router. Includes calendar views, date pickers, and interactive elements."
+      }
+    }
+  },
+  "tools": {
+    "title": "My Toolkit",
+    "subtitle": "Technologies I ship with daily",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "devops": "DevOps",
+      "databases": "Databases",
+      "more": "More"
+    },
+    "alsoTitle": "Also comfortable with",
+    "also": ["Responsive Design", "Performance", "Security", "Testing", "Microservices", "Cloud"]
+  },
+  "trash": {
+    "bornTo": "born to:",
+    "forcedTo": "forced to:",
+    "closeHint": "close this tab 😅",
+    "memeBornAlt": "Born to {n}",
+    "memeForcedAlt": "Forced to {n}"
+  },
+  "weather": {
+    "city": "Casablanca"
+  },
+  "lang": {
+    "groupLabel": "Language",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode"
+  },
+  "a11y": {
+    "toggleMenu": "Toggle menu",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email"
+  },
   "footer": {
+    "copyright": "© {year} Widad Amrani — Full Stack Developer",
     "cta": "Contact me"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Who I am and how I build products.",
+    "paragraphs": [
+      "I am a passionate and experienced Full Stack Developer with three years of dedicated expertise in building modern web and mobile applications. My specialization lies in creating robust, scalable solutions using cutting-edge technologies like Next.js, React, Node.js, React Native, and Supabase.",
+      "My journey has led me to architect and lead the development of comprehensive service management platforms from the ground up. I thrive in dynamic environments and have a proven track record of implementing complete API ecosystems and developing innovative multi-platform applications, such as barcode scanning systems.",
+      "I am driven by the challenge of solving complex problems and delivering high-quality, user-centric products that exceed expectations."
+    ],
+    "highlights": {
+      "fullStack": {
+        "title": "Full Stack Development",
+        "description": "Building complete web and mobile applications from frontend to backend"
+      },
+      "scalable": {
+        "title": "Scalable Solutions",
+        "description": "Creating robust systems that grow with your business needs"
+      },
+      "ux": {
+        "title": "User-Centric Design",
+        "description": "Focusing on exceptional user experiences and intuitive interfaces"
+      }
+    },
+    "statsYears": "Years",
+    "statsProjects": "Projects",
+    "statsSatisfaction": "Satisfaction"
+  },
+  "skills": {
+    "title": "My Stack",
+    "subtitle": "Technologies I use to ship production-ready products.",
+    "done": "Done",
+    "additionalTitle": "Additional Expertise",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "apisCloud": "APIs & Cloud",
+      "devops": "DevOps",
+      "databases": "Databases"
+    }
   }
-} 
+}
