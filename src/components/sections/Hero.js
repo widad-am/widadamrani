@@ -4,6 +4,7 @@ import Image from 'next/image';
 import MacWidget from '@/components/ui/MacWidget';
 import MacFolder from '@/components/ui/MacFolder';
 import MacWeatherWidget from '@/components/ui/MacWeatherWidget';
+import MacMobileCvStrip from '@/components/ui/MacMobileCvStrip';
 import { useTranslation } from '@/contexts/LanguageContext';
 import { getCvPath, getCvFilename } from '@/data/cv';
 import { dictionaries } from '@/i18n';
@@ -139,6 +140,8 @@ export default function Hero() {
                 </svg>
                 {t('hero.bio')}
               </div>
+
+              <MacMobileCvStrip />
             </motion.div>
           </div>
 
